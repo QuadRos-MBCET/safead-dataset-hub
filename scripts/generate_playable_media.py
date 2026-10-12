@@ -39,8 +39,12 @@ COLORS = {
 }
 
 
-def render_playable_video(dest_path: Path, title: str, label: str, duration_sec: int = 3, fps: int = 15):
-    """Encodes a genuine, fully playable MP4 video with motion graphics and ad copy."""
+def render_playable_video(dest_path: Path, title: str, label: str, duration_sec: int = 10, fps: int = 15):
+    """Encodes a genuine, fully playable MP4 video with motion graphics and ad copy.
+    
+    Guarantees duration is strictly between 5 seconds and 5 minutes (5s - 300s).
+    """
+    duration_sec = max(5, min(300, duration_sec))
     dest_path.parent.mkdir(parents=True, exist_ok=True)
     width, height = 640, 360
     total_frames = duration_sec * fps
@@ -80,9 +84,10 @@ def render_playable_video(dest_path: Path, title: str, label: str, duration_sec:
         tier_text = "Universal Audience - Family Safe" if label == "SAFE_FOR_ALL" else "Adolescent 14+ / Teen Directed"
         cv2.putText(frame, tier_text, (40, 160), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (100, 100, 100), 1)
 
-        # Commercial watermark
-        time_text = f"00:0{int(frame_idx/fps)} / 00:0{duration_sec}"
-        cv2.putText(frame, time_text, (width - 130, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+        # Commercial timestamp (MM:SS / MM:SS)
+        cur_sec = int(frame_idx / fps)
+        time_text = f"{cur_sec // 60:02d}:{cur_sec % 60:02d} / {duration_sec // 60:02d}:{duration_sec % 60:02d}"
+        cv2.putText(frame, time_text, (width - 150, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
         out.write(frame)
 
@@ -136,6 +141,9 @@ def main():
     collector = SafeAdCollector(WORKSPACE_ROOT, contributor="sourav")
     print(f"Regenerating {len(collector.records)} media files as fully valid, playable assets...")
 
+    DURATIONS = [6, 10, 15, 20, 30, 45, 60, 15, 30, 10]
+    vid_count = 0
+
     for i, rec in enumerate(collector.records):
         mtype = rec.get("media_type")
         label = rec.get("safead_label")
@@ -156,8 +164,11 @@ def main():
         fpath = WORKSPACE_ROOT / rec["file_path"]
 
         if mtype == "video":
-            render_playable_video(fpath, title, label)
-            print(f"[{i+1}/{len(collector.records)}] Encoded playable video: {fpath.name}")
+            dur = DURATIONS[vid_count % len(DURATIONS)]
+            vid_count += 1
+            rec["duration_seconds"] = dur
+            render_playable_video(fpath, title, label, duration_sec=dur, fps=15)
+            print(f"[{i+1}/{len(collector.records)}] Encoded playable video ({dur}s): {fpath.name}")
         else:
             render_valid_image(fpath, title, label)
             print(f"[{i+1}/{len(collector.records)}] Rendered viewable image: {fpath.name}")

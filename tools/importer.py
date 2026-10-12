@@ -343,6 +343,11 @@ def import_from_metadata_table(
 
             # Compute hash
             local_target = (base_media_dir / raw_media_path) if base_media_dir else None
+            if not (local_target and local_target.is_file()):
+                ext_path = Path("D:/SafeAd_Dataset/existing_datasets") / source_id / raw_media_path
+                if ext_path.is_file():
+                    local_target = ext_path
+
             if local_target and local_target.is_file():
                 sha256_val = calculate_sha256(local_target)
                 review_status = "verified"

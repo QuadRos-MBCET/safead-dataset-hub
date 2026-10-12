@@ -1,9 +1,10 @@
 {
-  "storage_backend": "gdrive",
-  "storage_root_uri": "gdrive://safead-storage/SafeAd_Dataset",
-  "local_dataset_root": "SafeAd_Dataset",
-  "existing_datasets_dir": "SafeAd_Dataset/existing_datasets",
-  "custom_datasets_dir": "SafeAd_Dataset/custom_datasets",
+  "storage_backend": "external_drive_and_gdrive",
+  "external_drive_root": "D:/SafeAd_Dataset",
+  "storage_root_uri": "gdrive://SafeAd_Dataset",
+  "local_dataset_root": "D:/SafeAd_Dataset",
+  "existing_datasets_dir": "D:/SafeAd_Dataset/existing_datasets",
+  "custom_datasets_dir": "D:/SafeAd_Dataset/custom_ads",
   "contributions_dir": "contributions",
   "supported_media_extensions": {
     "image": [".jpg", ".jpeg", ".png", ".webp", ".bmp"],

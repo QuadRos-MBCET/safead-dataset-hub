@@ -174,12 +174,30 @@ def initialize_all_candidate_tracking(tracker_path: Optional[Path] = None) -> No
             )
 
 
+def get_default_target_dir() -> Path:
+    config_file = Path(__file__).resolve().parent.parent / "configs" / "storage_config.json"
+    if config_file.is_file():
+        try:
+            with open(config_file, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+                custom_dir = cfg.get("existing_datasets_dir")
+                if custom_dir:
+                    p = Path(custom_dir)
+                    if p.is_absolute() and Path(p.drive + "\\").exists():
+                        return p
+                    elif not p.is_absolute():
+                        return Path(__file__).resolve().parent.parent / p
+        except Exception:
+            pass
+    return Path(__file__).resolve().parent.parent / "SafeAd_Dataset" / "existing_datasets"
+
+
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="SafeAd AI Dataset Downloader & Tracker")
     parser.add_argument("--source", type=str, help="Dataset ID to check or download")
-    parser.add_argument("--target-dir", default="SafeAd_Dataset/existing_datasets", help="Target local directory")
+    parser.add_argument("--target-dir", default=str(get_default_target_dir()), help="Target local directory (defaults to external drive if configured)")
     parser.add_argument("--dry-run", action="store_true", help="Perform dry-run without writing")
     parser.add_argument("--init-tracker", action="store_true", help="Initialize tracking for all candidates")
     parser.add_argument("--status", action="store_true", help="Print download tracking status table")

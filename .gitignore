@@ -1,5 +1,6 @@
 # Ignore actual media files and storage root
 SafeAd_Dataset/
+exports/
 *.mp4
 *.mov
 *.avi

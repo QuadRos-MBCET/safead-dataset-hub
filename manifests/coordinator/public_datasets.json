@@ -1,0 +1,6 @@
+{
+  "dataset_partition": "coordinator_public_benchmarks",
+  "maintainer": "Project Coordinator",
+  "description": "Pre-existing public and research datasets cataloged by coordinator",
+  "records": []
+}

@@ -1,0 +1,23 @@
+# Ignore actual media files and storage root
+SafeAd_Dataset/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
+*.log
+.DS_Store
+Thumbs.db

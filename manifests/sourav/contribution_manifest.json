@@ -6,7 +6,7 @@
   ],
   "branch": "feature/sourav-safe-for-all-14-plus",
   "storage_root": "SafeAd_Dataset/custom_ads/sourav/",
-  "generated_at": "2026-10-12T23:32:07.596400",
+  "generated_at": "2026-10-12T23:42:43.950012",
   "total_records": 74,
   "records": [
     {
@@ -21,7 +21,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Wholesome 100% pure orange juice breakfast advertisement with family illustration and nutrition highlight. No harmful or age-restricted claims.",
       "license_status": "Public Domain / CC0",
-      "sha256": "f8e2ac625707e0965f77be4d5f863879cda523618b7d82d10cc0de3c5ff2c489",
+      "sha256": "a0c1a1fd0dbf79943d9fbf39b120bb749e4b7ad4177def00479add1b32226225",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -37,7 +37,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Educational STEM building blocks promo featuring children engaged in creative play. Clean, positive, and universally suitable.",
       "license_status": "CC-BY-4.0",
-      "sha256": "72a8e1decf4360443680cdf1e655a64953eb232ad4c8a65b4a120c0b0d9e8259",
+      "sha256": "ff02b0455caad2a7825d5b86a78496b27b4616008cb1f6aafa6bdd1b1ea5e41a",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -53,7 +53,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Environmental awareness PSA urging park visitors to pack out litter. Wholesome message with scenic nature visuals.",
       "license_status": "Public Domain (US Gov Work)",
-      "sha256": "61d85dcfcbfadc57f1c4a416ff753823c12f7c6a601c1645a4c4120997bb3bb5",
+      "sha256": "2a3d416a218603271d0745369ec83b2c86a21e78de41f091a68c6d0d480030b3",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -69,7 +69,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Fluoride toothpaste advertisement emphasizing cavity protection with pediatric dentist recommendation illustration.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "81e8f11595f1a18718e2febb91765ce347f0c68c0b9c20a916e17c0c256be5f1",
+      "sha256": "778e075462e669482aad602e67ae9a71141ecdc024335d1466d4da9550aa5088",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -85,7 +85,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Rooftop residential solar panel advertisement promoting renewable household energy. Clean design and factual warranty info.",
       "license_status": "Unsplash Commercial Free License",
-      "sha256": "211d2b837a650c3a4b790bb878794dbcc12a8b189d187b14383ed21dd711da95",
+      "sha256": "d43a5dc24ecfd22e2723f4f0ef0310329e3c93e0ca67d5fa3219837c22e28346",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -101,7 +101,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Reading campaign poster encouraging children and students to acquire public library cards. Educational and benign.",
       "license_status": "CC-BY-2.0",
-      "sha256": "2a16463e1227300b0d715058da13d7ecd81020d22e76ee69ec28cae254b1f7e1",
+      "sha256": "1a7cbde6c4053b41cdcaba447d9a7eefdf19f818333d477121a7479dc13014d2",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -117,7 +117,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Organic dog food formulation highlighting wholesome grains and veterinary testing. Zero objectionable visual elements.",
       "license_status": "Pexels Commercial Permitted",
-      "sha256": "d7ea9ffe953b834d7dd45046bc5fac036d39fce98f19a343e8bdb77a8b4ca33c",
+      "sha256": "19186981585ab0a9e479d11ca70124065fb40b7c9fc9927177518ad3a53232a2",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -133,7 +133,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Urban commuter e-bike advertisement highlighting battery range and safety helmet usage. Clean family-friendly transit focus.",
       "license_status": "CC-BY-4.0",
-      "sha256": "f8afa39d436c8ac31ce79879634cdfe042d9b2e5f147c768b3d0a668c32c1017",
+      "sha256": "16290b22aa102563c4543c55478703e78b1b47130778a5ed0ecdaa808cf0b681",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -149,7 +149,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Classic dairy council promotional video showing farming process and healthy calcium benefits for growing children.",
       "license_status": "Public Domain (Prelinger Archive)",
-      "sha256": "5a08e3badbab75cfce04a7cc8dbe014f0207ca3fa853b0e3331c2cfc16c8e20d",
+      "sha256": "1921ebbd67f78cb63318d3abf4fc3a70806958650c171cf3d8ee3c61cd12f439",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -165,7 +165,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Countertop multi-stage water purifier video spot demonstrating clean tap filtration. Informative and free of hazard.",
       "license_status": "CC-BY-3.0",
-      "sha256": "02aee29022335dad0cd27942f59a64811e02ed164606cbc97c346d99af00b318",
+      "sha256": "2f28bae5e50ec503a868a56e094f0965ee4952de43c5357420af26203d4aac7c",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -181,7 +181,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Animated short commercial promoting light rail public transit to reduce urban traffic emissions. Completely safe for all ages.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "87a4dc3b152288f8835182552d37b3435b06ee6cfa39887d322096aacb9e1195",
+      "sha256": "575453bae87b20ad3b5e6d83fb557fbb61914b9e900e8c05ff2db4b031866923",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -197,7 +197,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Stylized sci-fi action mobile game poster with glowing energy blades and robotic opponents. Fantasy combat without gore; suitable for ages 14+.",
       "license_status": "CC-BY-NC-4.0 (Authorized Research)",
-      "sha256": "ee536eeea39183f0df8b5f66bf13bffef468402b4f4dbab606412c673469c36b",
+      "sha256": "151b32aaf458d053d0fdf3fc3c1f4596317726344ad672da888da5c1a62a2301",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -213,7 +213,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Teen streetwear ad featuring models with bold graphic typography, street graffiti, and oversized hoodies. Targeted to teens and young adults.",
       "license_status": "CC-BY-4.0",
-      "sha256": "0d87efbe9295636a051f9e3174deeb9fea7b263786a3fdef4cca9024338bd3ff",
+      "sha256": "eaafa7adedcb6a619f996e4b6cd4915da48f27b11f03bea5e4ec79b22118bdad",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -229,7 +229,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "VR supernatural escape room poster with spooky ghost silhouettes and dramatic fog. Thematic spooky tension inappropriate for young kids, but suitable for 14+.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "605f4e4f128b954972466637ed3be16cca3591efa5981be7c6411e80594f78a7",
+      "sha256": "9ecf1a70ba6e3cae0ecd4c23a121bd08f64bbc5043d8b3ff20ff0ca29a50289a",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -245,7 +245,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Sports nutrition banner for post-workout protein shake with athletic runner imagery. High caffeine/supplement focus targeted at adolescents and adults.",
       "license_status": "CC-BY-2.0",
-      "sha256": "0ee22dc6153791278b33f427a9ae5f294c29e7f77cc583105a4788c2d52ded03",
+      "sha256": "d8f3dd1102c02ac42031397ada03f816dd4f710842e69deb0a6300c73fa53b70",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -261,7 +261,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Caffeinated energy drink print ad with extreme skateboarding motif. Contains high caffeine disclosure unsuitable for younger children, appropriate for 14+.",
       "license_status": "CC-BY-3.0",
-      "sha256": "308f9d729cd23829045da22ccc76c70919926650735c7739bff80c6c76fa1101",
+      "sha256": "0f8389d05a863810ab4f0ad842f04567420b1872c218e1691d73da7401524d4c",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -277,7 +277,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Medicated salicylic acid spot treatment advertisement showing closeup skin blemishes and clinical diagram. Targeted specifically at adolescents (14+).",
       "license_status": "Public Domain",
-      "sha256": "2a7d77187ff6b5c85743f89b0103ba4356bd814dc9864903ba6520989a96b06d",
+      "sha256": "c376a0a3753e6bfa393f1979232a359f39de84ba1230c0f759aac28203957bd7",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -293,7 +293,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Space shooter teaser showing laser dogfights and exploding starships. Action violence is bloodless and stylized; rated for teens 14+.",
       "license_status": "CC-BY-3.0 (Blender Open Project Assets)",
-      "sha256": "65122dd39873d45c01b517cc7f847699a76402415cadfae73cdf1c4b54a4d33c",
+      "sha256": "6ee06257719a41ec0e567695353e881d008e1f6fc06e834b3f7e4467d7b3f014",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -309,7 +309,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Drifting championship teaser video with loud screeching tires, nitrous effects, and high-speed stunt driving. Exciting action thrills suited for 14+.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "1b6c91a77e8ff31a56595e7d73e6addb34fd2e9a3ef4e101591af6847a871e9c",
+      "sha256": "6dd27958c824073723eaabd8506406a84c3d1fc16970588b3f4e1254ca383060",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -325,7 +325,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Borderline advertisement claiming rapid overnight fat loss with before-and-after imagery. Flagged for review due to deceptive claim threshold and body-image policy.",
       "license_status": "Documented Research Fair Use",
-      "sha256": "08b45c1c1aa823d3dcc7aa308800fd0cac758061d479b6c19751fe5a3fd72e5c",
+      "sha256": "073d6daaf03fd454b2bde22ee9e367cfa9c6dc247abe2e6f707c005f6e665563",
       "annotation_status": "COMPLETED",
       "review_status": "NEEDS_REVIEW"
     },
@@ -341,7 +341,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Social networking app ad with suggestive flirtatious copy ('Find your late-night crush'). Mild suggestive themes could border on 18+ depending on platform age policy.",
       "license_status": "Authorized Academic Research Use",
-      "sha256": "8b5a02da2409c17f19584ce95a78f3a7e182339e70058324f622f66e80d55f9e",
+      "sha256": "7498c7a4396f37038932d245aff58e92352b9b1e75130455376d54bd6402f8e3",
       "annotation_status": "COMPLETED",
       "review_status": "NEEDS_REVIEW"
     },
@@ -357,7 +357,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Whole grain cereal advertisement promoting heart health and family breakfast. Completely wholesome and universal.",
       "license_status": "CC-BY-4.0",
-      "sha256": "2d2ab16f627a1534992ca9a829307618b07f462f5de0266e41b884dcdf4ef69b",
+      "sha256": "61e38c7f2ee41d02d8f6ebd22b69a62dd6e076dd259d6648b2e383180bc4140b",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -373,7 +373,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Demonstration of triple-stage microfiltration system for drinking water. Informative household goods ad.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "8a56e4a3fce75a14acb1a8a094510f7682e4816f318b219c354e05a8711a9a58",
+      "sha256": "f753801ecfeef03d9ad346c690bab1682d71a96f1fc40a5f467ebc7f4c697b82",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -389,7 +389,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Classic wilderness preservation message encouraging responsible campfire safety.",
       "license_status": "Public Domain (US Gov)",
-      "sha256": "99c94c4e58de1ce57efa8a2204e4adb72f97435e8ca76ac7d8fcf470f9e2da67",
+      "sha256": "5a4cedf1ca645c7354510bb2edbbd53294226954d0cca9fca0fef7a5fe94cd96",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -405,7 +405,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Biodegradable dental hygiene product showcasing sustainable materials and pediatric dentist approval.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "bcaed340081949f02ab96d82a96dc7e393056191e0785a92f611339bc0f84d16",
+      "sha256": "583c183e46d2e899aa1240098aec4bc5ff25b232ef56f5a92c1ff6af55255559",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -421,7 +421,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Visual programming and robotics workshop promo for elementary school students. Educational and positive.",
       "license_status": "CC-BY-4.0",
-      "sha256": "2e4305abbf7ac4c4ba8c54055510dade4c6c108b0c840e1cc5e13302b46b819c",
+      "sha256": "270da82c81fe47fb2c6de37eb747fec8c0c971fa9d1448a1a2fbdca81dfb52d0",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -437,7 +437,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Local pasture dairy farm promotion highlighting organic clover feed and farm fresh milk bottles.",
       "license_status": "CC-BY-3.0",
-      "sha256": "40206e0b90a3b49c54c771e09452e65c3cbd1dfe8bbc2c1f5ff32e786a4e0685",
+      "sha256": "800772ac79fdddef93eb48554bc719588424446931d12319b5d09429f70ad1a0",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -453,7 +453,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Hypoallergenic, fragrance-free laundry detergent safe for infant clothing. Benign family product.",
       "license_status": "CC-BY-4.0",
-      "sha256": "f2f36b3a1084ffd2b1d0ab9df7c3f225cbd41e6804a4c002c409566cfe4ce03b",
+      "sha256": "86362b0a4e7e66e61a12338d32bf209c363be791b6c68516ed4afe0044d34089",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -469,7 +469,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Residential photovoltaic system advertisement detailing grid energy savings and tax credits.",
       "license_status": "CC-BY-SA-3.0",
-      "sha256": "beca8aaf7c609b5bc1528efec9eac66379dd8ae820330d955abc64e2bda85cb8",
+      "sha256": "09eed8fffa5e53907573ae2a16fc374a41aee14258d3025587a0c17edff1b638",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -485,7 +485,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Community library festival ad with cartoon animal illustrations promoting literacy in children.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "8767cefefd84d12fa109e27ffa1a148f81dc97643f44eb2636214fd26e3eb123",
+      "sha256": "6c7a365af1baedea8849bb46e6770eb721dda6e2a3b63ec60c71f69db7b3cf07",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -501,7 +501,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Natural omega-3 grain-free cat food snacks. Wholesome pet care advertisement.",
       "license_status": "CC-BY-2.0",
-      "sha256": "13f7d83c51e98529a48ef4d0272ea01b88f63fa8d2523f5081d74034274011fe",
+      "sha256": "33c1093bd5865c0a793ae2ac71d51952301ab55734fb2d68d4677389f21cc208",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -517,7 +517,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Stainless steel water bottle advertisement promoting outdoor hydration and zero plastic waste.",
       "license_status": "CC-BY-4.0",
-      "sha256": "e29867e99842ddb768725ebb20ab924265c91ae4d3171e5b2f71b2de74e0269b",
+      "sha256": "f710e4600b909f119a5df8fb93788b8f826bb51c6ffb0c5b308f5bc81d7daec4",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -533,7 +533,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Windowsill culinary herb garden kit for families with non-toxic organic soil pods.",
       "license_status": "CC-BY-3.0",
-      "sha256": "62cdd0946fe603b71589b816d0351f3f1b26fd54a8c992fdeaf0ee24e9e4b058",
+      "sha256": "babe75f2fa79d626a65a1b430e0c39001210c954ef15fc8170434d29df564bbc",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -549,7 +549,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Allergy-friendly baking flour packaging ad featuring homemade pancakes. Suitable for all audiences.",
       "license_status": "CC-BY-4.0",
-      "sha256": "81d8f97bb88fb93bbfc0665882e0a6c553448274b47e2fa688e30365c09cfb4e",
+      "sha256": "0486c54355eaa0f91240e441b5fadf833bf28adfd8e7a0f988cc0fc460387b15",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -565,7 +565,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Toddler balance bicycle advertisement emphasizing helmet safety and balance development.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "d49b551277cbf092a41dba776c1d2215e12340ac3d8137e3501cf11a648f7c2a",
+      "sha256": "180f109f114bc9772371e4f1b1cc492f205ad6734659a91839bc4ff91d5d6f92",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -581,7 +581,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Public health notice advising parents on early childhood vision checkups before school entry.",
       "license_status": "Public Domain",
-      "sha256": "68f1d20d112fc1cbdbf6bffaae42ca2d15e4cbf69c94b38112a24f983a220eb1",
+      "sha256": "3a8f4780123d9d8ff20d26b2ab7f4aaf1f72f9793b33570969267931b9cffa8f",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -597,7 +597,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Nursery cool mist humidifier ad demonstrating whisper-quiet night operation and BPA-free tank.",
       "license_status": "CC-BY-4.0",
-      "sha256": "8e2ef76285530d0b3b9b49df1ec2b210dbf2fb4e334627925cd662bae37a0210",
+      "sha256": "23297beb34dc4c79f79b5dc4081965712954f7a3fd1bef2e607b819c92e03dd7",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -613,7 +613,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Non-toxic wooden world map puzzle designed for preschool fine motor skill building.",
       "license_status": "CC-BY-2.0",
-      "sha256": "a4411779dda56fa961fe021b3cbf94af76c5c895b90a8f7c4fefd180dd2bb4dc",
+      "sha256": "988214eadbcd4089d60cf4a27e57aeb3752c6ffa42973e5e7b699c565edbd61a",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -629,7 +629,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Wholesome outdoor trail mix granola bar print ad highlighting whole almonds and wild honey.",
       "license_status": "Public Domain",
-      "sha256": "ff656d9ab30b3fdc96f0ecfbc7d8f78f2783877fb130d13db2c5bbf69587a0e5",
+      "sha256": "3d0a2804f4016910650385086f0102d7208e829e3dd14c2dde6f2906b98121ec",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -645,7 +645,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Local YMCA swimming and water safety course announcement for toddlers and parents.",
       "license_status": "CC-BY-3.0",
-      "sha256": "8f1417736999ebfca01a647aaec44ac4316cb0c72232efa050c8f1b5c147f0ee",
+      "sha256": "2ddd65fb2742b8a43608f390db6901249b4fd6bebd3f702557a09134e8021791",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -661,14 +661,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Lead-free artisanal stoneware plates and bowls styled in a cozy family dining setup.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "d086fface5d8021b8993ce00c19c86bc99e33aa51ae6db01666cf72d7f33b1b1",
+      "sha256": "e045f2e16f7b93a2636eb8d81b74957dea0ba0cc9b439fa27778a3f66b34c61a",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_004",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_004.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_004.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_004.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_004.mp4",
       "media_type": "video",
       "source_name": "Internet Archive Prelinger Ads",
       "source_url": "https://archive.org/details/goldenglow_pure_honey_30s_ad",
@@ -677,14 +677,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Classic television commercial showing apiary harvest and tea breakfast table. Family-safe content.",
       "license_status": "Public Domain",
-      "sha256": "8db579c05394855d460f509037d7b6f0e8c78a367bc76530b5909199e8175b3f",
+      "sha256": "6e1c1ad9d80e94dadd1d10f7a4cb955200b8616cb799683d9ad1443e1c6fe6e6",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_005",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_005.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_005.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_005.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_005.mp4",
       "media_type": "video",
       "source_name": "Open Public Transit Media",
       "source_url": "https://archive.org/details/citytransit_electric_bus_campaign",
@@ -693,14 +693,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Short 15-second promo on emissions reduction from electric city buses. Completely non-controversial.",
       "license_status": "CC0",
-      "sha256": "128148de6271eaed11e9e6363e228a1e804fd5cba168b7464d318438d905dd3c",
+      "sha256": "324b037643371a466856748c5e549c6a0bc01934c766b2996382a7ef3787acce",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_006",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_006.webm",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_006.webm",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_006.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_006.mp4",
       "media_type": "video",
       "source_name": "Museum Outreach Archive",
       "source_url": "https://commons.wikimedia.org/wiki/File:KidVenture_Hands_On_Science_Spot.webm",
@@ -709,14 +709,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Children exploring interactive dinosaur exhibits and planetarium. Wholesome and educational.",
       "license_status": "CC-BY-4.0",
-      "sha256": "56cf179392256ea4f6bd703a68e25241d8e0caedfc75cf89b79d8109c91ba8b6",
+      "sha256": "ee9a38d7af9fb4caa3fbdc6cdc8424e012e8e90e1caf95eaca2cde4054a7d0eb",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_007",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_007.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_007.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_007.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_007.mp4",
       "media_type": "video",
       "source_name": "Historic Television Archive",
       "source_url": "https://archive.org/details/purespring_bottled_water_spot_1978",
@@ -725,14 +725,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Mountain stream spring water bottling commercial emphasizing mineral purity and hydration.",
       "license_status": "Public Domain",
-      "sha256": "e95a3397d5c2f1b4564b63d3bb77aeb1037f38aa8a584164f187675e9e4bfef7",
+      "sha256": "669d71e62731553a2a5f5a7379b2ca462c03bd38d83413523e0eea8b7b0f7ce4",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_008",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_008.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_008.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_008.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_008.mp4",
       "media_type": "video",
       "source_name": "Open EdTech Video Showcase",
       "source_url": "https://archive.org/details/brightstart_phonics_alphabet_video_ad",
@@ -741,7 +741,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Phonics and alphabet interactive learning app demo featuring friendly cartoon animals.",
       "license_status": "CC-BY-3.0",
-      "sha256": "e826e4f7e95cacef375eeebe1bbce49998a48c8d288802459ce1e32a30f9c581",
+      "sha256": "321f0fa5e07c0be88b6b36e122b341a037053892542ac31257556b4283d5393e",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -757,14 +757,14 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Educational campaign urging shoppers to utilize reusable canvas tote bags.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "1de4ed28b57217f330340475318de3eddb87a477a298c6b840b9551d99e30115",
+      "sha256": "251d120b53a68736a2b0b3f0169ceaf287d228bf15690bd62b3e2eabd17ed013",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_SFA_VID_010",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_010.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_010.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_010.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_for_all/SAFEAD_SOURAV_SFA_VID_010.mp4",
       "media_type": "video",
       "source_name": "Kitchenware Media Pool",
       "source_url": "https://archive.org/details/familycook_ceramic_pan_tvc_1982",
@@ -773,7 +773,7 @@
       "safead_label": "SAFE_FOR_ALL",
       "label_reason": "Cooking demonstration making golden pancakes without oil. Household kitchen appliance focus.",
       "license_status": "Public Domain",
-      "sha256": "9083c7f8e13f7fdccab41865130907880c2faaa88f131fa61ad349ca7ebe73a3",
+      "sha256": "9ec6e779ec5724962155e11cf18b3f446f545ec0c8e0a07f65ed3b99ffca3b3e",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -789,7 +789,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Futuristic anti-gravity racing game ad with glowing cyberpunk neon aesthetic. Mild sci-fi speed thrills suited for teens 14+.",
       "license_status": "CC-BY-4.0",
-      "sha256": "c3b17b9ee2e30c0c24f489dfcb12cc76d2d9d60ee005c7e1caff09113f9acbaf",
+      "sha256": "e1b0ef24e3d92b9a6b6ecc54805de327db205b47536381c8200dffbb4b688875",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -805,7 +805,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Youth urban techwear ad featuring brooding model in heavy rain with reflective tape. Targeted at young adults/teens.",
       "license_status": "CC-BY-3.0",
-      "sha256": "731334de1ff31df9b3a14e4cce5e16ee80a7869e546ad069cbfedabd481a83f2",
+      "sha256": "639933ccf06a2d5d01e4e59d2d1bc2c0bf6b4d93c4ab347e5fe57f2d31102c41",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -821,7 +821,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Shonen action comic book advertisement with dramatic samurai duel illustration. Action combat without gore; suited for 14+.",
       "license_status": "CC-BY-NC-4.0",
-      "sha256": "e11901cd65b7c34ccde625eca30989b702044b8c9e944a2086569ce236558620",
+      "sha256": "3e9ffc8de4ecafdbb28bd5b7e8270031620c5bce2e311f13216947c7e949f399",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -837,7 +837,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Intense gym training shaker bottle promo with muscular weightlifter. High caffeine & pre-workout focus appropriate for teens 14+.",
       "license_status": "CC-BY-2.0",
-      "sha256": "47c23538ccbc88bf218b9a40911b80e8bb5efcd7b5017e520c65a8030627c5cc",
+      "sha256": "170978781b73150a0ca17313a7af38cd47af15d1c8545d78236590af16d31bc0",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -853,7 +853,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Blemish extraction and pore-clearing face mask advertisement showing teen skincare results.",
       "license_status": "CC-BY-4.0",
-      "sha256": "cbeab8b1447cd82e2a2f63bc95c196666e82e1b3ef6731a4ad0451065a41e606",
+      "sha256": "fedd892da77c5c1de618e7f81c8ba9dd422cbd091ec5d22b0ada9b1fda56c8d1",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -869,7 +869,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Halloween horror walk-through teaser with eerie masked actors and strobe lighting. Too intense for children, suited for 14+.",
       "license_status": "CC0 / Public Domain",
-      "sha256": "6d71fb420d0662cbf44127b382efae24de5d4ae59da3c77ab674de80641c530a",
+      "sha256": "345c1880ec685362d802639c7f332319323a5a899951117790d5cdcdc0f76019",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -885,7 +885,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Bass-heavy DJ monitoring headphones ad styled in underground nightclub concert atmosphere.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "a77898d6c709a28300582f120278adc16f3bc67e35d0edfc9b63c1746a2364a9",
+      "sha256": "d9195bc1a0efbd2d864fd68a97cd02f58fac0417e76b8e503782316b335e64e6",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -901,7 +901,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Extreme spice viral snacking challenge poster with flame graphics and caution banner. Targeted at older adolescents.",
       "license_status": "CC-BY-4.0",
-      "sha256": "2691584f344d134cc0092d00aa7f484655a28e2e321e80ccb231bd39225c9110",
+      "sha256": "392cf36c1f0b1da0cd0e03b8edde2f66d2a4bca65209b69993625272387bb7b8",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -917,7 +917,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Competitive tactical paintball arena promo showing gear and airsoft targets. Simulated action combat appropriate for 14+.",
       "license_status": "CC-BY-3.0",
-      "sha256": "3ef360df0648e0790ab7b95bfbdc0a9e2f43955f2a6945dab44ac88032882162",
+      "sha256": "3fe28bb21242b4dbf558a39b5e45c4a6c1e6e912a96375badc9f51c88fc17469",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -933,7 +933,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Hardcore street skateboarding deck advertisement featuring graffiti art and rail grind stunt.",
       "license_status": "CC-BY-4.0",
-      "sha256": "7953f1e7419308f7852800e692bd170996f91ae093c07430de3dbd75dbb07872",
+      "sha256": "013331c95388a7bb4f58a2ac3cbfdc586455443b2e8093378fd1612aeb5cafde",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -949,7 +949,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Heavy deadlift and bar muscle-up leather hand grips ad displaying intense athletic exertion.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "af51ee528a5812a92e405a08a07b59196626f71105cdf5d0639c8176ae0dd78a",
+      "sha256": "20eb8aae3ec51cf3a23eaa4807443f647339dbe98b862afd56845cfce9885021",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -965,7 +965,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Thematic zombie laboratory puzzle game ad with spooky psychological themes. Recommended for teens and adults.",
       "license_status": "CC0",
-      "sha256": "fc1c00ba62a26685eec686a5c07fdc6f15eb53b1cf3b77884b1f4908eeb54168",
+      "sha256": "fe5145fd1590948665230438f7c08a6f5127fef92d44fea86c5812fb93a83cc7",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -981,7 +981,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Time-travel sci-fi tabletop wargame ad with miniature painted infantry and battle terrain.",
       "license_status": "CC-BY-4.0",
-      "sha256": "a4a6712abe07df30327e327ecd2296e5c2e1414b17dd906b69408e55a5bac62b",
+      "sha256": "3a59b26ac21bb8dd41768b44f397294481559e4f0f0f32f84615c96d944f0c5a",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -997,7 +997,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Concentrated 250mg caffeine energy shot banner with warning not to consume under 14. Clear age-tier appropriateness.",
       "license_status": "CC-BY-2.0",
-      "sha256": "52e22fb99ca51a95e574eba5c2b9e340bc0fb1a7516ab31416434a74cdc77ab7",
+      "sha256": "fa5d73aeca1961a67dd34c72e83e037e3441f62f439a94a53d24d11638eba03d",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -1013,7 +1013,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Full-face carbon downhill mountain biking helmet ad featuring aggressive rocky descent.",
       "license_status": "CC-BY-4.0",
-      "sha256": "5acdc2e7439ace519418931a21dd79961f4e42599116ee094aa5eb84cf5ecd55",
+      "sha256": "ea6e218ed4abae2fa56356a4e27d93bb76be7cda177a364a203f7db559e2d321",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -1029,7 +1029,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Thermogenic fat-burning capsules advertisement claiming elevated resting calorie burn. Borderline claims require team review.",
       "license_status": "Authorized Research Fair Use",
-      "sha256": "9563e8a2a6836a152e68d0d630ff00e2c229940a6748ac9ea0ec8541fc87cf65",
+      "sha256": "6b261049f1a2d07e21ca192c96afac71ebe49128e3f8a3976ec56c800dfb9d4c",
       "annotation_status": "COMPLETED",
       "review_status": "NEEDS_REVIEW"
     },
@@ -1045,7 +1045,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Social mixer event ad with romantic courtship slogans ('Find your flame'). Mild suggestive copy borders on 18+ policy.",
       "license_status": "Authorized Research Fair Use",
-      "sha256": "93e419809a0a13966325bc82998c593b2fef39ea7a17b61e9eb5652d8dbd7153",
+      "sha256": "926e0258274dffb912c184f750f28146855351a014ca54d0d05ed71ae8e2ea93",
       "annotation_status": "COMPLETED",
       "review_status": "NEEDS_REVIEW"
     },
@@ -1061,7 +1061,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "DIY EVA foam battle armor and fantasy sword crafting course ad for cosplay conventions. Creative craft suited for 14+.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "a87f46562f3481cce773b3f5e2a49d2ea4aa74782ac3296a3b7920b79d6096ec",
+      "sha256": "3aa37693e6aaaed51b5f3853472eff7e9b272d48baef6b6567f60241f0216384",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -1077,7 +1077,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Ultra-lightweight esports gaming mouse promo showcasing high DPI sensor and RGB lighting for competitive gamers.",
       "license_status": "CC-BY-4.0",
-      "sha256": "7c725654918bfc6201f2ac94b678c330ff4eac9390b25f245cfab928a155e2a8",
+      "sha256": "64d7f6640dd32f42fcf8d9ccabe0e67a0462f63fb53455b8c3b6b3201f5ce744",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
@@ -1093,14 +1093,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Gothic alternative fashion line featuring dark velvet garments and occult-themed jewelry.",
       "license_status": "CC-BY-3.0",
-      "sha256": "60af81babb6313301f8d21b6f87d42fcf3693238eb9631e38a1c933e37584dcf",
+      "sha256": "617608ed3760924afb5f410b224af470909a5f64b59f7aa5a21f9df7e71cb5b1",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_003",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_003.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_003.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_003.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_003.mp4",
       "media_type": "video",
       "source_name": "Blender Open Animation",
       "source_url": "https://archive.org/details/starfighter_cinematic_dogfight_spot",
@@ -1109,14 +1109,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "30-second kinetic space battle animation showing laser cannon dogfights. Action-packed but clean fantasy violence.",
       "license_status": "CC-BY-3.0",
-      "sha256": "571e46fd76387e46a4a7a52581a03240efb2fc41d4ed9501d4f64266e4b98a62",
+      "sha256": "68eb4b32944704d3a03aad8b176c8b325d6da1557995c3b817e762c72b14d680",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_004",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_004.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_004.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_004.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_004.mp4",
       "media_type": "video",
       "source_name": "Open Motorsports Media",
       "source_url": "https://archive.org/details/outlaw_rally_gravel_stage_commercial",
@@ -1125,14 +1125,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Rally racing championship promo video with fast corner slides and loud engine revs. Action sports thrill suited for 14+.",
       "license_status": "CC0",
-      "sha256": "90fe8a0776a0daccd0bad8fc871bac001c72e1b5f7f3a0ad0da5b70edabc9b77",
+      "sha256": "b53750f9f544929b2659783ac42f8e19b99423e692d9ee372f38440fbf72a850",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_005",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_005.webm",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_005.webm",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_005.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_005.mp4",
       "media_type": "video",
       "source_name": "Indie Game Video Archive",
       "source_url": "https://commons.wikimedia.org/wiki/File:DungeonCrawler_Action_RPG_Trailer.webm",
@@ -1141,14 +1141,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Overhead fantasy dungeon game teaser with skeleton enemies and magical spell effects. PG-13 action suited for 14+.",
       "license_status": "CC-BY-4.0",
-      "sha256": "a6bf91fe3b95e66995d84614de5c5bbbc8e817fcd9eb0ef1104e2ea77b464b02",
+      "sha256": "e2a1fbdf517de2f13d9908618f3c16cf4c9f6cd5cc1539df2580e452733756b1",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_006",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_006.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_006.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_006.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_006.mp4",
       "media_type": "video",
       "source_name": "Urban Movement Collective",
       "source_url": "https://archive.org/details/parkour_freerunning_city_roof_promo",
@@ -1157,14 +1157,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Extreme urban freerunning commercial for athletic sneakers featuring rooftop gap jumps and flips.",
       "license_status": "CC-BY-SA-4.0",
-      "sha256": "0fae883f95bc91aba4b843e159eff1ffa68db5653e77221ee9044c8d299ae8c1",
+      "sha256": "8d07bc6a142f6b22cf7bf6b0977dc59bc19a7758632eb63b5d916c2d88b07e63",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_007",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_007.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_007.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_007.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_007.mp4",
       "media_type": "video",
       "source_name": "Interactive Media Pool",
       "source_url": "https://archive.org/details/shadowrealm_virtual_reality_horror_spot",
@@ -1173,14 +1173,14 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Teaser commercial for VR psychological horror mystery. Eerie sound design and suspense intended for teens 14+.",
       "license_status": "CC-BY-3.0",
-      "sha256": "19b2949d59d722e148f48bf83114d60e0b6cde3e1e57d955e0fe434cc87a3617",
+      "sha256": "290fe848b696deeb8156e38a710ca1b1a783bae80251a4b6741e251693932d50",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     },
     {
       "sample_id": "SAFEAD_SOURAV_S14P_VID_008",
-      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_008.mov",
-      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_008.mov",
+      "file_path": "SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_008.mp4",
+      "storage_uri": "gdrive://SafeAd_Dataset/custom_ads/sourav/safe_14_plus/SAFEAD_SOURAV_S14P_VID_008.mp4",
       "media_type": "video",
       "source_name": "Athletic Video Showcase",
       "source_url": "https://archive.org/details/maxpump_functional_fitness_video_spot",
@@ -1189,7 +1189,7 @@
       "safead_label": "SAFE_14_PLUS",
       "label_reason": "Functional fitness and tire-flip workout compilation promoting kettlebells and athletic chalk.",
       "license_status": "CC0",
-      "sha256": "9a5c8bdf27e4c0ed304143cf2432438bee478adf9dd15e79e9d1e8b0083423c7",
+      "sha256": "8f6c91becd736707a2f73571bb353d636ba36b405ca6ab84dcc37dcb936af50d",
       "annotation_status": "COMPLETED",
       "review_status": "PROPOSED"
     }

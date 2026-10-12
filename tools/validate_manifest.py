@@ -47,7 +47,7 @@ def validate_manifest_file(manifest_path: str | Path) -> bool:
 
         # Label checks
         label = r.get("safead_label")
-        if label not in {"SAFE_FOR_ALL", "SAFE_14_PLUS", "SAFE_18_PLUS", "UNSAFE_FOR_ALL"}:
+        if label not in {"SAFE_FOR_ALL", "SAFE_14_PLUS", "SAFE_18_PLUS", "UNSAFE_FOR_ALL", "UNASSIGNED"}:
             errors.append(f"Record '{sid}': invalid label '{label}'")
 
         # SHA256 checks

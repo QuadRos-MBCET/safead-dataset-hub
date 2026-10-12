@@ -39,6 +39,13 @@ All advertisement samples must be labeled with exactly one of the four core clas
   - Explicit sexual content, pornography, illegal drugs, severe gore/violence, hate speech, malware/phishing distribution, fraudulent scams, illegal weapons.
 - **Note**: Handled by Juwel.
 
+### 5. `UNASSIGNED` (Component Research Only)
+- **Audience**: Submodule benchmarking and algorithmic calibration.
+- **Criteria**:
+  - Samples from pre-existing public and research datasets (e.g., UTKFace/FairFace facial age crops, text-only comments, benign control memes) that serve component-level research rather than commercial advertising.
+  - Prevents forcing non-ad or ambiguous research samples into commercial ad publishing categories without defensible justification.
+- **Note**: Maintained by Project Coordinator / Member 1 under `manifests/coordinator/public_datasets.json`.
+
 ---
 
 ## Evaluation Workflow & Review States

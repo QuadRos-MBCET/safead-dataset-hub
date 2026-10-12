@@ -5,7 +5,10 @@ import unittest
 import tempfile
 import shutil
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from tools.ad_collector import SafeAdCollector, compute_sha256, detect_media_type
 from tools.validate_manifest import validate_manifest_file

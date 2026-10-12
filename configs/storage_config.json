@@ -1,0 +1,15 @@
+{
+  "storage_backend": "gdrive",
+  "storage_root_uri": "gdrive://safead-storage/SafeAd_Dataset",
+  "local_dataset_root": "SafeAd_Dataset",
+  "existing_datasets_dir": "SafeAd_Dataset/existing_datasets",
+  "custom_datasets_dir": "SafeAd_Dataset/custom_datasets",
+  "contributions_dir": "contributions",
+  "supported_media_extensions": {
+    "image": [".jpg", ".jpeg", ".png", ".webp", ".bmp"],
+    "video": [".mp4", ".avi", ".mov", ".mkv", ".webm"],
+    "text": [".txt", ".json", ".jsonl", ".csv"],
+    "audio": [".wav", ".mp3", ".aac", ".flac"]
+  },
+  "hash_algorithm": "sha256"
+}

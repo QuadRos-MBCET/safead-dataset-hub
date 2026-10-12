@@ -32,7 +32,7 @@
     },
     "media_type": {
       "type": "string",
-      "enum": ["image", "video"]
+      "enum": ["image", "video", "text", "multimodal"]
     },
     "source_name": {
       "type": "string",
@@ -50,7 +50,7 @@
     },
     "safead_label": {
       "type": "string",
-      "enum": ["SAFE_FOR_ALL", "SAFE_14_PLUS", "SAFE_18_PLUS", "UNSAFE_FOR_ALL"]
+      "enum": ["SAFE_FOR_ALL", "SAFE_14_PLUS", "SAFE_18_PLUS", "UNSAFE_FOR_ALL", "UNASSIGNED"]
     },
     "label_reason": {
       "type": "string",

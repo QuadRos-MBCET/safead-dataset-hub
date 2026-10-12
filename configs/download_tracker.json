@@ -1,0 +1,47 @@
+{
+  "datasets": {
+    "conpro_bad_ads": {
+      "status": "pending_verification",
+      "last_updated": "2026-10-12T17:49:53.536764+00:00",
+      "name": "Bad News / ConPro Online Ads Dataset",
+      "access_requirements": "Open GitHub repository for code and dataset.csv (2,246 ad annotations). Screenshots archive (~multi-GB) is hosted on Google Drive (link provided in README).",
+      "license_status": "Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file)"
+    },
+    "hateful_memes": {
+      "status": "restricted_manual_action_required",
+      "last_updated": "2026-10-12T17:49:53.552952+00:00",
+      "name": "Facebook Hateful Memes (FHM)",
+      "access_requirements": "Restricted / Gated Access. Requires registering on DrivenData (Competition 73) or signing the Meta research license agreement via Hugging Face ('facebook/hateful_memes').",
+      "license_status": "Meta Hateful Memes Research License (Non-commercial research only, privacy restrictions, Getty Images compilation restrictions)"
+    },
+    "dehate": {
+      "status": "pending_verification",
+      "last_updated": "2026-10-12T17:49:53.565162+00:00",
+      "name": "DeHate Video Dataset",
+      "access_requirements": "Open GitHub repo contains DeHate.xlsx (6,689 annotated video entries). Video clips must be fetched via platform IDs or requested from authors in compliance with platform terms of service.",
+      "license_status": "Academic Research Use Only (Strict Ethics Statement; confidential research use only; no permissive redistribution of raw platform videos)"
+    },
+    "jigsaw_toxic": {
+      "status": "restricted_manual_action_required",
+      "last_updated": "2026-10-12T17:49:53.578774+00:00",
+      "name": "Jigsaw Multilingual / Toxic Comment Classification",
+      "access_requirements": "Kaggle account required to accept competition rules; also mirrored under TensorFlow Datasets and Hugging Face ('jigsaw_toxicity_pred').",
+      "license_status": "CC0 (Public Domain) for Jigsaw annotations; underlying Wikipedia talk page comments licensed under CC BY-SA 3.0"
+    },
+    "utkface": {
+      "status": "pending_verification",
+      "last_updated": "2026-10-12T17:49:53.590808+00:00",
+      "name": "UTKFace Large-Scale Face Dataset",
+      "access_requirements": "Open Google Drive links provided in official GitHub repository README (1.3GB in-the-wild, 107MB cropped faces, 12MB landmarks).",
+      "license_status": "Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web)."
+    },
+    "fairface": {
+      "status": "pending_verification",
+      "last_updated": "2026-10-12T17:49:53.601727+00:00",
+      "name": "FairFace Balanced Demographic Face Dataset",
+      "access_requirements": "Public GitHub repository (dchen236/FairFace and joojs/fairface) with Google Drive download links for images (train/val archive) and label CSV files.",
+      "license_status": "CC BY 4.0 (Creative Commons Attribution 4.0 International)"
+    }
+  },
+  "last_updated": "2026-10-12T17:49:53.601727+00:00"
+}

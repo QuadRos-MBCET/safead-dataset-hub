@@ -140,10 +140,11 @@ class SafeAdCollector:
             dest_path.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src_path, dest_path)
 
+        norm_rel_path = rel_path.replace("\\", "/")
         record = {
             "sample_id": sample_id,
-            "file_path": rel_path.replace("\\", "/"),
-            "storage_uri": f"gdrive://{rel_path.replace('\\', '/')}",
+            "file_path": norm_rel_path,
+            "storage_uri": f"gdrive://{norm_rel_path}",
             "media_type": media_type,
             "source_name": source_name,
             "source_url": source_url,

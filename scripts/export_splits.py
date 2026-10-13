@@ -205,9 +205,13 @@ def write_csv(filepath: Path, records: List[Dict[str, Any]]) -> None:
         return
 
     filepath.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = list(records[0].keys())
+    all_keys = set()
+    for r in records:
+        all_keys.update(r.keys())
+    fieldnames = sorted(list(all_keys))
+
     with open(filepath, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(records)
 

@@ -143,7 +143,8 @@ def import_dataset_directory(
     storage_root_uri: str = "gdrive://safead-storage/SafeAd_Dataset",
     dry_run: bool = False,
     metadata_table_path: Optional[Path] = None,
-    default_review_status: str = "verified"
+    default_review_status: str = "verified",
+    limit: Optional[int] = None
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     """
     Scans a local dataset folder, hashes files, builds records according to the shared schema,
@@ -171,6 +172,8 @@ def import_dataset_directory(
                 media_files.append(p)
 
     media_files.sort()
+    if limit:
+        media_files = media_files[:limit]
 
     # Pre-load optional metadata lookup
     metadata_lookup: Dict[str, Dict[str, Any]] = {}
@@ -439,7 +442,8 @@ if __name__ == "__main__":
             data_dir=s_dir,
             output_manifest_csv=out_csv,
             dry_run=args.dry_run,
-            metadata_table_path=meta_table
+            metadata_table_path=meta_table,
+            limit=args.limit
         )
         print(f"Directory Ingestion: Imported {len(recs)} records for '{args.source}'. Manifest: {out_csv}")
     else:

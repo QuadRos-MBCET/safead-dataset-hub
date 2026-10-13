@@ -174,6 +174,13 @@ def build_face_splits(
                     race = part.split("=", 1)[1]
 
             item = dict(r)
+            # Resolve actual on-disk location on external or local drive
+            s_source = "fairface" if "fairface" in sname else "utkface"
+            sub_folder = "val" if s_source == "fairface" else "faces"
+            filename = Path(r.get("file_path", "")).name
+            d_path = Path("D:/SafeAd_Dataset/existing_datasets") / s_source / sub_folder / filename
+            item["local_media_path"] = str(d_path) if d_path.is_file() else str(Path("SafeAd_Dataset/existing_datasets") / s_source / sub_folder / filename)
+
             item["parsed_age"] = age if age is not None else ""
             item["parsed_gender"] = gender if gender is not None else ""
             item["parsed_race"] = race if race is not None else ""

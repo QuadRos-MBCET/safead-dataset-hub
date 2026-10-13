@@ -411,6 +411,7 @@ if __name__ == "__main__":
     parser.add_argument("--output-csv", default=None, help="Path to write manifest.csv")
     parser.add_argument("--metadata-csv", default=None, help="Path to raw source metadata table for folder import")
     parser.add_argument("--dry-run", action="store_true", help="Simulate import without writing output")
+    parser.add_argument("--base-media-dir", default=None, help="Root directory containing raw media files to hash")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of processed records")
 
     args = parser.parse_args()
@@ -418,10 +419,12 @@ if __name__ == "__main__":
     if args.metadata_table:
         m_table = Path(args.metadata_table)
         out_csv = Path(args.output_csv) if args.output_csv else m_table.parent / "manifest.csv"
+        b_media = Path(args.base_media_dir) if args.base_media_dir else None
         recs, sumry = import_from_metadata_table(
             source_id=args.source,
             metadata_table_path=m_table,
             output_manifest_csv=out_csv,
+            base_media_dir=b_media,
             dry_run=args.dry_run,
             limit=args.limit
         )

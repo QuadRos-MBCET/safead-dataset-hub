@@ -1,14 +1,14 @@
 # SafeAd AI: Existing Dataset Collection Summary Report
 
 - **Total Candidate Manifests Audited**: 6
-- **Total Registered Samples**: 22
+- **Total Registered Samples**: 2438
 - **Schema Compliance Rate**: 6 / 6 (100.0%)
 
 ## Dataset Breakdown Table
 
 | Dataset ID | Display Name | Samples | Primary Modality | SafeAd Labels | License Status | Compliance |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `conpro_bad_ads` | Bad News / ConPro Online Ads Dataset | 5 | image | UNASSIGNED:3, SAFE_18_PLUS:1, UNSAFE_FOR_ALL:1 | Academic Research Only | [VALID] |
+| `conpro_bad_ads` | Bad News / ConPro Online Ads Dataset | 2421 | image | UNASSIGNED:2341, SAFE_18_PLUS:72, UNSAFE_FOR_ALL:8 | Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file) | [VALID] |
 | `dehate` | DeHate Video Dataset | 3 | video | UNSAFE_FOR_ALL:2, UNASSIGNED:1 | Academic Research Only | [VALID] |
 | `fairface` | FairFace Balanced Demographic Face Dataset | 4 | image | UNASSIGNED:4 | CC BY 4.0 | [VALID] |
 | `hateful_memes` | Facebook Hateful Memes (FHM) | 4 | multimodal | UNSAFE_FOR_ALL:2, UNASSIGNED:2 | Meta Research License | [VALID] |
@@ -22,24 +22,25 @@
 ### Bad News / ConPro Online Ads Dataset (`conpro_bad_ads`)
 - **Manifest**: `SafeAd_Dataset\existing_datasets\conpro_bad_ads\manifest.csv`
 - **Official URL**: https://github.com/eric-zeng/conpro-bad-ads-data
-- **Verified License**: Academic Research Only
-- **Sample Count**: 5
-- **Duplicates Detected**: 0
+- **Verified License**: Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file)
+- **Sample Count**: 2421
+- **Duplicates Detected**: 337
 
 **Media Type Distribution:**
-  - `image`: 5
+  - `image`: 2421
 
 **SafeAd 4-Tier Label Distribution:**
-  - `UNASSIGNED`: 3 (60.0%)
-  - `SAFE_18_PLUS`: 1 (20.0%)
-  - `UNSAFE_FOR_ALL`: 1 (20.0%)
+  - `UNASSIGNED`: 2341 (96.7%)
+  - `SAFE_18_PLUS`: 72 (3.0%)
+  - `UNSAFE_FOR_ALL`: 8 (0.3%)
 
 **Source Annotations Sample:**
-  - `Supplements`: 1
-  - `Investing`: 1
-  - `Potentially Unwanted Software`: 1
-  - `Content Farm`: 1
-  - `Product`: 1
+  - `Charities and PSAs`: 17
+  - `Content Farm`: 283
+  - `Insurance`: 96
+  - `Investing`: 43
+  - `Mortgage`: 29
+  - *(and 9 more source labels)*
 
 
 ### DeHate Video Dataset (`dehate`)

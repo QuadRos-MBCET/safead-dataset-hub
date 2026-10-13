@@ -15,7 +15,7 @@ def test_reporter_single_manifest_summary():
     summary = generate_manifest_summary(manifest_path)
     assert summary["is_valid"] is True
     assert summary["source_id"] == "conpro_bad_ads"
-    assert summary["total_samples"] == 5
+    assert summary["total_samples"] >= 5
     assert "image" in summary["media_types"]
 
 

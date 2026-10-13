@@ -143,7 +143,8 @@ def import_dataset_directory(
     storage_root_uri: str = "gdrive://safead-storage/SafeAd_Dataset",
     dry_run: bool = False,
     metadata_table_path: Optional[Path] = None,
-    default_review_status: str = "verified"
+    default_review_status: str = "verified",
+    limit: Optional[int] = None
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     """
     Scans a local dataset folder, hashes files, builds records according to the shared schema,
@@ -171,6 +172,8 @@ def import_dataset_directory(
                 media_files.append(p)
 
     media_files.sort()
+    if limit:
+        media_files = media_files[:limit]
 
     # Pre-load optional metadata lookup
     metadata_lookup: Dict[str, Dict[str, Any]] = {}
@@ -411,6 +414,7 @@ if __name__ == "__main__":
     parser.add_argument("--output-csv", default=None, help="Path to write manifest.csv")
     parser.add_argument("--metadata-csv", default=None, help="Path to raw source metadata table for folder import")
     parser.add_argument("--dry-run", action="store_true", help="Simulate import without writing output")
+    parser.add_argument("--base-media-dir", default=None, help="Root directory containing raw media files to hash")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of processed records")
 
     args = parser.parse_args()
@@ -418,10 +422,12 @@ if __name__ == "__main__":
     if args.metadata_table:
         m_table = Path(args.metadata_table)
         out_csv = Path(args.output_csv) if args.output_csv else m_table.parent / "manifest.csv"
+        b_media = Path(args.base_media_dir) if args.base_media_dir else None
         recs, sumry = import_from_metadata_table(
             source_id=args.source,
             metadata_table_path=m_table,
             output_manifest_csv=out_csv,
+            base_media_dir=b_media,
             dry_run=args.dry_run,
             limit=args.limit
         )
@@ -436,7 +442,8 @@ if __name__ == "__main__":
             data_dir=s_dir,
             output_manifest_csv=out_csv,
             dry_run=args.dry_run,
-            metadata_table_path=meta_table
+            metadata_table_path=meta_table,
+            limit=args.limit
         )
         print(f"Directory Ingestion: Imported {len(recs)} records for '{args.source}'. Manifest: {out_csv}")
     else:

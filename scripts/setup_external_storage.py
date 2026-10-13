@@ -31,9 +31,9 @@ DOWNLOAD_GUIDE = {
     },
     "utkface": {
         "name": "UTKFace Aligned & Cropped Faces (107 MB)",
-        "url": "https://drive.google.com/drive/folders/0BxYys69jI14kU0I1YUQyY1ZDRUE?usp=sharing",
+        "url": "https://huggingface.co/datasets/py97/UTKFace-Cropped or https://www.kaggle.com/datasets/jangedoo/utkface-new",
         "target": EXTERNAL_ROOT / "existing_datasets" / "utkface" / "faces",
-        "action": "Download UTKFace.tar.gz or aligned zip and extract images here."
+        "action": "Download UTKFace.tar.gz from Hugging Face or crop_part1 from Kaggle and extract images here."
     },
     "fairface": {
         "name": "FairFace Images Margin 1.25",

@@ -1,19 +1,19 @@
 # SafeAd AI: Existing Dataset Collection Summary Report
 
 - **Total Candidate Manifests Audited**: 6
-- **Total Registered Samples**: 22
+- **Total Registered Samples**: 26143
 - **Schema Compliance Rate**: 6 / 6 (100.0%)
 
 ## Dataset Breakdown Table
 
 | Dataset ID | Display Name | Samples | Primary Modality | SafeAd Labels | License Status | Compliance |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `conpro_bad_ads` | Bad News / ConPro Online Ads Dataset | 5 | image | UNASSIGNED:3, SAFE_18_PLUS:1, UNSAFE_FOR_ALL:1 | Academic Research Only | [VALID] |
+| `conpro_bad_ads` | Bad News / ConPro Online Ads Dataset | 2421 | image | UNASSIGNED:2341, SAFE_18_PLUS:72, UNSAFE_FOR_ALL:8 | Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file) | [VALID] |
 | `dehate` | DeHate Video Dataset | 3 | video | UNSAFE_FOR_ALL:2, UNASSIGNED:1 | Academic Research Only | [VALID] |
 | `fairface` | FairFace Balanced Demographic Face Dataset | 4 | image | UNASSIGNED:4 | CC BY 4.0 | [VALID] |
 | `hateful_memes` | Facebook Hateful Memes (FHM) | 4 | multimodal | UNSAFE_FOR_ALL:2, UNASSIGNED:2 | Meta Research License | [VALID] |
 | `jigsaw_toxic` | Jigsaw Multilingual / Toxic Comment Classification | 3 | text | UNSAFE_FOR_ALL:1, SAFE_18_PLUS:1, UNASSIGNED:1 | CC0 / CC BY-SA 3.0 | [VALID] |
-| `utkface` | UTKFace Large-Scale Face Dataset | 3 | image | UNASSIGNED:3 | Non-commercial Research Only | [VALID] |
+| `utkface` | UTKFace Large-Scale Face Dataset | 23708 | image | UNASSIGNED:23708 | Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web). | [VALID] |
 
 ---
 
@@ -22,24 +22,25 @@
 ### Bad News / ConPro Online Ads Dataset (`conpro_bad_ads`)
 - **Manifest**: `SafeAd_Dataset\existing_datasets\conpro_bad_ads\manifest.csv`
 - **Official URL**: https://github.com/eric-zeng/conpro-bad-ads-data
-- **Verified License**: Academic Research Only
-- **Sample Count**: 5
-- **Duplicates Detected**: 0
+- **Verified License**: Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file)
+- **Sample Count**: 2421
+- **Duplicates Detected**: 337
 
 **Media Type Distribution:**
-  - `image`: 5
+  - `image`: 2421
 
 **SafeAd 4-Tier Label Distribution:**
-  - `UNASSIGNED`: 3 (60.0%)
-  - `SAFE_18_PLUS`: 1 (20.0%)
-  - `UNSAFE_FOR_ALL`: 1 (20.0%)
+  - `UNASSIGNED`: 2341 (96.7%)
+  - `SAFE_18_PLUS`: 72 (3.0%)
+  - `UNSAFE_FOR_ALL`: 8 (0.3%)
 
 **Source Annotations Sample:**
-  - `Supplements`: 1
-  - `Investing`: 1
-  - `Potentially Unwanted Software`: 1
-  - `Content Farm`: 1
-  - `Product`: 1
+  - `Charities and PSAs`: 17
+  - `Content Farm`: 283
+  - `Insurance`: 96
+  - `Investing`: 43
+  - `Mortgage`: 29
+  - *(and 9 more source labels)*
 
 
 ### DeHate Video Dataset (`dehate`)
@@ -125,18 +126,21 @@
 ### UTKFace Large-Scale Face Dataset (`utkface`)
 - **Manifest**: `SafeAd_Dataset\existing_datasets\utkface\manifest.csv`
 - **Official URL**: https://github.com/aicip/UTKFace
-- **Verified License**: Non-commercial Research Only
-- **Sample Count**: 3
-- **Duplicates Detected**: 0
+- **Verified License**: Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web).
+- **Sample Count**: 23708
+- **Duplicates Detected**: 390
 
 **Media Type Distribution:**
-  - `image`: 3
+  - `image`: 23708
 
 **SafeAd 4-Tier Label Distribution:**
-  - `UNASSIGNED`: 3 (100.0%)
+  - `UNASSIGNED`: 23708 (100.0%)
 
 **Source Annotations Sample:**
-  - `age=25;gender=Male;race=White`: 1
-  - `age=14;gender=Female;race=Indian`: 1
-  - `age=8;gender=Male;race=Asian`: 1
+  - `age=100;gender=Male;race=White`: 2
+  - `age=100;gender=Female;race=White`: 6
+  - `age=100;gender=Female;race=Asian`: 3
+  - `age=101;gender=Male;race=White`: 1
+  - `age=101;gender=Female;race=Asian`: 1
+  - *(and 843 more source labels)*
 

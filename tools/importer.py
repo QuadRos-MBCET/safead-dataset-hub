@@ -182,7 +182,14 @@ def import_dataset_directory(
             with open(metadata_table_path, "r", encoding="utf-8-sig") as mf:
                 reader = csv.DictReader(mf)
                 for row in reader:
-                    key = row.get("filename") or row.get("id") or row.get("ad_id") or row.get("img")
+                    key = (
+                        row.get("filename")
+                        or row.get("file")
+                        or row.get("image_name")
+                        or row.get("id")
+                        or row.get("ad_id")
+                        or row.get("img")
+                    )
                     if key:
                         metadata_lookup[Path(key).name] = row
 
@@ -216,6 +223,12 @@ def import_dataset_directory(
             if age is not None:
                 raw_label = f"age={age};gender={gender};race={race}"
                 notes_extra = f"Demographics: Age {age}, {gender}, {race}"
+        elif source_id == "fairface" and meta_row:
+            age = meta_row.get("age", "")
+            gender = meta_row.get("gender", "")
+            race = meta_row.get("race", "")
+            raw_label = f"age={age};gender={gender};race={race}"
+            notes_extra = f"Demographics: Age {age}, {gender}, {race}"
         elif meta_row:
             raw_label = (
                 meta_row.get("name")

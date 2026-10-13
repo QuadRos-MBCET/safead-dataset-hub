@@ -1,7 +1,7 @@
 # SafeAd AI: Existing Dataset Collection Summary Report
 
 - **Total Candidate Manifests Audited**: 6
-- **Total Registered Samples**: 26143
+- **Total Registered Samples**: 37093
 - **Schema Compliance Rate**: 6 / 6 (100.0%)
 
 ## Dataset Breakdown Table
@@ -10,7 +10,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `conpro_bad_ads` | Bad News / ConPro Online Ads Dataset | 2421 | image | UNASSIGNED:2341, SAFE_18_PLUS:72, UNSAFE_FOR_ALL:8 | Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file) | [VALID] |
 | `dehate` | DeHate Video Dataset | 3 | video | UNSAFE_FOR_ALL:2, UNASSIGNED:1 | Academic Research Only | [VALID] |
-| `fairface` | FairFace Balanced Demographic Face Dataset | 4 | image | UNASSIGNED:4 | CC BY 4.0 | [VALID] |
+| `fairface` | FairFace Balanced Demographic Face Dataset | 10954 | image | UNASSIGNED:10954 | CC BY 4.0 (Creative Commons Attribution 4.0 International) | [VALID] |
 | `hateful_memes` | Facebook Hateful Memes (FHM) | 4 | multimodal | UNSAFE_FOR_ALL:2, UNASSIGNED:2 | Meta Research License | [VALID] |
 | `jigsaw_toxic` | Jigsaw Multilingual / Toxic Comment Classification | 3 | text | UNSAFE_FOR_ALL:1, SAFE_18_PLUS:1, UNASSIGNED:1 | CC0 / CC BY-SA 3.0 | [VALID] |
 | `utkface` | UTKFace Large-Scale Face Dataset | 23708 | image | UNASSIGNED:23708 | Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web). | [VALID] |
@@ -66,21 +66,23 @@
 ### FairFace Balanced Demographic Face Dataset (`fairface`)
 - **Manifest**: `SafeAd_Dataset\existing_datasets\fairface\manifest.csv`
 - **Official URL**: https://github.com/joojs/fairface
-- **Verified License**: CC BY 4.0
-- **Sample Count**: 4
-- **Duplicates Detected**: 0
+- **Verified License**: CC BY 4.0 (Creative Commons Attribution 4.0 International)
+- **Sample Count**: 10954
+- **Duplicates Detected**: 2
 
 **Media Type Distribution:**
-  - `image`: 4
+  - `image`: 10954
 
 **SafeAd 4-Tier Label Distribution:**
-  - `UNASSIGNED`: 4 (100.0%)
+  - `UNASSIGNED`: 10954 (100.0%)
 
 **Source Annotations Sample:**
-  - `age=20-29;gender=Male;race=East Asian`: 1
-  - `age=30-39;gender=Female;race=White`: 1
-  - `age=10-19;gender=Female;race=Black`: 1
-  - `age=0-2;gender=Male;race=Indian`: 1
+  - `age=3-9;gender=Male;race=East Asian`: 137
+  - `age=3-9;gender=Male;race=Southeast Asian`: 113
+  - `age=20-29;gender=Female;race=East Asian`: 384
+  - `age=20-29;gender=Male;race=Latino_Hispanic`: 181
+  - `age=20-29;gender=Female;race=Southeast Asian`: 250
+  - *(and 121 more source labels)*
 
 
 ### Facebook Hateful Memes (FHM) (`hateful_memes`)

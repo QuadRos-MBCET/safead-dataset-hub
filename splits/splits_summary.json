@@ -1,0 +1,32 @@
+{
+  "generator": "tools/export_splits.py",
+  "split_ratios": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "random_seed": 42,
+  "ad_policy_splits": {
+    "train_count": 68,
+    "val_count": 8,
+    "test_count": 10,
+    "total": 86,
+    "paths": {
+      "train": "splits\\ad_policy\\train.csv",
+      "val": "splits\\ad_policy\\val.csv",
+      "test": "splits\\ad_policy\\test.csv"
+    }
+  },
+  "facial_age_splits": {
+    "train_count": 27729,
+    "val_count": 3466,
+    "test_count": 3467,
+    "total": 34662,
+    "paths": {
+      "train": "splits\\facial_age\\train.csv",
+      "val": "splits\\facial_age\\val.csv",
+      "test": "splits\\facial_age\\test.csv"
+    }
+  },
+  "total_manifest_records_ingested": 37093
+}

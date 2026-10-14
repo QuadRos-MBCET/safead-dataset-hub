@@ -120,11 +120,15 @@ def map_source_label_to_safead(source_id: str, raw_label: str, metadata: Optiona
 
     elif source_lower == "jigsaw_toxic":
         meta = metadata or {}
-        if meta.get("severe_toxic") or meta.get("threat") or meta.get("identity_hate"):
+        def is_flagged(key):
+            val = str(meta.get(key, 0)).strip()
+            return val in {"1", "1.0", "True", "true"}
+
+        if is_flagged("severe_toxic") or is_flagged("threat") or is_flagged("identity_hate"):
             return "UNSAFE_FOR_ALL", "Severe toxicity/threat/identity hate rejected"
-        elif meta.get("obscene"):
+        elif is_flagged("obscene"):
             return "SAFE_18_PLUS", "Profane/obscene language age-gated to adults"
-        elif meta.get("toxic") or meta.get("insult"):
+        elif is_flagged("toxic") or is_flagged("insult"):
             return "SAFE_18_PLUS", "Mild toxic language age-gated"
         else:
             return "UNASSIGNED", "Non-toxic text alone cannot guarantee visual ad safety"
@@ -355,24 +359,54 @@ def import_from_metadata_table(
             sample_id = f"{prefix}_{idx:05d}"
             rel_file_path = f"SafeAd_Dataset/existing_datasets/{source_id}/{raw_media_path}"
             storage_uri = f"{storage_root_uri}/existing_datasets/{source_id}/{raw_media_path}"
-            mtype = infer_media_type(Path(raw_media_path))
-
-            # Compute hash
-            local_target = (base_media_dir / raw_media_path) if base_media_dir else None
-            if not (local_target and local_target.is_file()):
-                ext_path = Path("D:/SafeAd_Dataset/existing_datasets") / source_id / raw_media_path
-                if ext_path.is_file():
-                    local_target = ext_path
-
-            if local_target and local_target.is_file():
-                sha256_val = calculate_sha256(local_target)
+            if source_id == "jigsaw_toxic":
+                mtype = "text"
+                raw_media_path = f"comments/{row.get('id', idx)}.txt"
+                toxic_tags = []
+                for k in ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]:
+                    if str(row.get(k, "0")).strip() in {"1", "1.0", "True", "true"}:
+                        toxic_tags.append(k)
+                raw_label = ";".join(toxic_tags) if toxic_tags else "clean"
+                content_text = row.get("comment_text", "")
+                sha256_val = hashlib.sha256(content_text.encode("utf-8")).hexdigest()
                 review_status = "verified"
+            elif source_id == "dehate":
+                mtype = "video"
+                vid_id = str(row.get("Video ID") or idx)
+                raw_media_path = f"videos/{vid_id}.mp4"
+                hate_type = str(row.get("Explicit or Implicit") or row.get("Hate") or "Non-Hate").strip()
+                target_groups = []
+                for grp in ["Race", "Gender", "Religion", "Sexual Orientation", "Disability", "Immigration"]:
+                    if str(row.get(grp, 0)).strip() in {"1", "1.0", "True", "true"}:
+                        target_groups.append(grp)
+                grp_str = f" [Targets: {', '.join(target_groups)}]" if target_groups else ""
+                raw_label = f"{hate_type}{grp_str}"
+                local_vid = Path("D:/SafeAd_Dataset/existing_datasets/dehate/videos") / f"{vid_id}.mp4"
+                if local_vid.is_file():
+                    sha256_val = calculate_sha256(local_vid)
+                    review_status = "verified"
+                else:
+                    sha256_val = hashlib.sha256(f"dehate:{vid_id}:{raw_label}".encode("utf-8")).hexdigest()
+                    review_status = "pending"
             else:
-                # Deterministic hash representing the pending cloud sample record
-                rec_str = f"{source_id}:{sample_id}:{raw_media_path}:{raw_label}"
-                sha256_val = hashlib.sha256(rec_str.encode("utf-8")).hexdigest()
-                review_status = "pending"
+                mtype = infer_media_type(Path(raw_media_path))
+                # Compute hash
+                local_target = (base_media_dir / raw_media_path) if base_media_dir else None
+                if not (local_target and local_target.is_file()):
+                    ext_path = Path("D:/SafeAd_Dataset/existing_datasets") / source_id / raw_media_path
+                    if ext_path.is_file():
+                        local_target = ext_path
 
+                if local_target and local_target.is_file():
+                    sha256_val = calculate_sha256(local_target)
+                    review_status = "verified"
+                else:
+                    # Deterministic hash representing the pending cloud sample record
+                    rec_str = f"{source_id}:{sample_id}:{raw_media_path}:{raw_label}"
+                    sha256_val = hashlib.sha256(rec_str.encode("utf-8")).hexdigest()
+                    review_status = "pending"
+
+            safead_label, rationale = map_source_label_to_safead(source_id, raw_label, row)
             notes = f"Imported from {metadata_table_path.name}; {rationale}"
 
             records.append({

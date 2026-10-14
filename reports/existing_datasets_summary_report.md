@@ -1,8 +1,8 @@
 # SafeAd AI: Existing Dataset Collection Summary Report
 
-- **Total Candidate Manifests Audited**: 6
-- **Total Registered Samples**: 54812
-- **Schema Compliance Rate**: 6 / 6 (100.0%)
+- **Total Candidate Manifests Audited**: 7
+- **Total Registered Samples**: 54887
+- **Schema Compliance Rate**: 7 / 7 (100.0%)
 
 ## Dataset Breakdown Table
 
@@ -14,13 +14,14 @@
 | `hateful_memes` | Facebook Hateful Memes (FHM) | 1040 | image | UNSAFE_FOR_ALL:447, UNASSIGNED:593 | Meta Hateful Memes Research License (Non-commercial research only, privacy restrictions, Getty Images compilation restrictions) | [VALID] |
 | `jigsaw_toxic` | Jigsaw Multilingual / Toxic Comment Classification | 10000 | text | UNASSIGNED:8970, UNSAFE_FOR_ALL:189, SAFE_18_PLUS:841 | CC0 (Public Domain) for Jigsaw annotations; underlying Wikipedia talk page comments licensed under CC BY-SA 3.0 | [VALID] |
 | `utkface` | UTKFace Large-Scale Face Dataset | 23708 | image | UNASSIGNED:23708 | Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web). | [VALID] |
+| `Beer-Tv-Ads` | Beer TV Ads Dataset | 75 | video | SAFE_18_PLUS:75 | Research / Open Broadcast | [VALID] |
 
 ---
 
 ## Detailed Dataset Statistics
 
 ### Bad News / ConPro Online Ads Dataset (`conpro_bad_ads`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\conpro_bad_ads\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\conpro_bad_ads\manifest.csv`
 - **Official URL**: https://github.com/eric-zeng/conpro-bad-ads-data
 - **Verified License**: Research / Academic Use Only (ConPro 2020 publication; no explicit permissive open source license file)
 - **Sample Count**: 2421
@@ -44,7 +45,7 @@
 
 
 ### DeHate Video Dataset (`dehate`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\dehate\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\dehate\manifest.csv`
 - **Official URL**: https://github.com/Multimodal-Intelligence-Lab-MIL/DeHate
 - **Verified License**: Academic Research Use Only (Strict Ethics Statement; confidential research use only; no permissive redistribution of raw platform videos)
 - **Sample Count**: 6689
@@ -67,7 +68,7 @@
 
 
 ### FairFace Balanced Demographic Face Dataset (`fairface`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\fairface\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\fairface\manifest.csv`
 - **Official URL**: https://github.com/joojs/fairface
 - **Verified License**: CC BY 4.0 (Creative Commons Attribution 4.0 International)
 - **Sample Count**: 10954
@@ -89,7 +90,7 @@
 
 
 ### Facebook Hateful Memes (FHM) (`hateful_memes`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\hateful_memes\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\hateful_memes\manifest.csv`
 - **Official URL**: https://ai.meta.com/blog/hateful-memes-challenge-and-data-set/
 - **Verified License**: Meta Hateful Memes Research License (Non-commercial research only, privacy restrictions, Getty Images compilation restrictions)
 - **Sample Count**: 1040
@@ -108,7 +109,7 @@
 
 
 ### Jigsaw Multilingual / Toxic Comment Classification (`jigsaw_toxic`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\jigsaw_toxic\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\jigsaw_toxic\manifest.csv`
 - **Official URL**: https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/data
 - **Verified License**: CC0 (Public Domain) for Jigsaw annotations; underlying Wikipedia talk page comments licensed under CC BY-SA 3.0
 - **Sample Count**: 10000
@@ -132,7 +133,7 @@
 
 
 ### UTKFace Large-Scale Face Dataset (`utkface`)
-- **Manifest**: `SafeAd_Dataset\existing_datasets\utkface\manifest.csv`
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\utkface\manifest.csv`
 - **Official URL**: https://github.com/aicip/UTKFace
 - **Verified License**: Non-commercial Research Purposes Only (AICIP does not hold image copyright; collected from web).
 - **Sample Count**: 23708
@@ -151,4 +152,21 @@
   - `age=101;gender=Male;race=White`: 1
   - `age=101;gender=Female;race=Asian`: 1
   - *(and 843 more source labels)*
+
+
+### Beer TV Ads Dataset (`Beer-Tv-Ads`)
+- **Manifest**: `D:\SafeAd_Dataset\existing_datasets\video_ads\manifest.csv`
+- **Official URL**: https://huggingface.co/datasets/dnaoblivion/Beer-Tv-Ads
+- **Verified License**: Research / Open Broadcast
+- **Sample Count**: 75
+- **Duplicates Detected**: 0
+
+**Media Type Distribution:**
+  - `video`: 75
+
+**SafeAd 4-Tier Label Distribution:**
+  - `SAFE_18_PLUS`: 75 (100.0%)
+
+**Source Annotations Sample:**
+  - `Alcohol / Beer Commercial`: 75
 

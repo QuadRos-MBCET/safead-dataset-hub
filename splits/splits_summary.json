@@ -7,10 +7,10 @@
   },
   "random_seed": 42,
   "ad_policy_splits": {
-    "train_count": 3070,
-    "val_count": 383,
-    "test_count": 386,
-    "total": 3839,
+    "train_count": 3130,
+    "val_count": 390,
+    "test_count": 394,
+    "total": 3914,
     "paths": {
       "train": "splits\\ad_policy\\train.csv",
       "val": "splits\\ad_policy\\val.csv",
@@ -28,5 +28,5 @@
       "test": "splits\\facial_age\\test.csv"
     }
   },
-  "total_manifest_records_ingested": 54974
+  "total_manifest_records_ingested": 55049
 }

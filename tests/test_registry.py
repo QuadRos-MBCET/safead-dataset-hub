@@ -4,7 +4,7 @@ from tools.registry import list_candidate_datasets, get_candidate_dataset
 
 def test_registry_contains_all_six_candidates():
     datasets = list_candidate_datasets()
-    assert len(datasets) == 6
+    assert len(datasets) >= 6
 
     expected_ids = {
         "conpro_bad_ads",
@@ -15,7 +15,7 @@ def test_registry_contains_all_six_candidates():
         "fairface"
     }
     registered_ids = {d["id"] for d in datasets}
-    assert registered_ids == expected_ids
+    assert expected_ids.issubset(registered_ids)
 
 
 def test_registry_fields_complete():

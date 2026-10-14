@@ -9,8 +9,10 @@ __pycache__/
 .pytest_cache/
 .venv/
 env/
-venv/
-*.log
-.DS_Store
 Thumbs.db
 desktop.ini
+
+# Generated training splits (large CSV files regenerated via scripts/export_splits.py)
+splits/facial_age/
+splits/ad_policy/
+

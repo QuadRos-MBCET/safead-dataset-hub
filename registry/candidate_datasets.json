@@ -151,6 +151,30 @@
       "download_import_instructions": "1. Visit official GitHub: https://github.com/joojs/fairface or https://github.com/dchen236/FairFace\n2. Download fairface_label_train.csv and fairface-img-margin125-trainval.zip from Google Drive.\n3. Extract into SafeAd_Dataset/existing_datasets/fairface/\n4. Run importer tool: python tools/importer.py --source fairface --data-dir SafeAd_Dataset/existing_datasets/fairface",
       "known_limitations": "Cropped facial images only; discrete age brackets rather than exact continuous ages; strictly for facial analysis, not advertisement creative evaluation.",
       "verification_status": "Verified (WACV 2021 published, CC BY 4.0 license verified)."
+    },
+    {
+      "id": "Beer-Tv-Ads",
+      "name": "Beer TV Ads Dataset",
+      "official_source_url": "https://huggingface.co/datasets/dnaoblivion/Beer-Tv-Ads",
+      "paper_title": "Beer TV Ads Open Archive & Multimodal Commercials Collection",
+      "modality": "video, audio, text",
+      "media_types": ["video"],
+      "purpose": "Study television broadcast advertisements, brand creative messaging, and beverage commercial media.",
+      "actual_label_types": [
+        "brand_name",
+        "spot_products",
+        "spot_language",
+        "brand_parent_name",
+        "spot_description"
+      ],
+      "potential_safead_use": "Direct video ad policy classification for SAFE_18_PLUS (Alcohol and Beverage Advertising Regulations). Real broadcast commercials with brand, dialogue/audio, and visual product presentations.",
+      "access_requirements": "Open Hugging Face dataset (dnaoblivion/Beer-Tv-Ads) with high-speed direct CloudFront CDN video stream links.",
+      "license_status": "Research / Open Broadcast (Commercial TV broadcasts archived for research and evaluation purposes)",
+      "commercial_restrictions": "Research / Academic evaluation.",
+      "attribution_requirements": "Cite dnaoblivion/Beer-Tv-Ads repository on Hugging Face.",
+      "download_import_instructions": "Run scripts/download_beer_video_ads.py --limit <N> to stream .mp4 files directly to D:\\SafeAd_Dataset\\existing_datasets\\video_ads\\videos\\.",
+      "known_limitations": "Commercials focus specifically on beer / alcohol category; historical broadcast archive; English language predominant.",
+      "verification_status": "Verified (Live CloudFront CDN links verified, 75 broadcast videos ingested with streaming SHA-256 digests)."
     }
   ]
 }

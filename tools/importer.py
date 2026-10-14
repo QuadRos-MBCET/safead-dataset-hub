@@ -120,11 +120,15 @@ def map_source_label_to_safead(source_id: str, raw_label: str, metadata: Optiona
 
     elif source_lower == "jigsaw_toxic":
         meta = metadata or {}
-        if meta.get("severe_toxic") or meta.get("threat") or meta.get("identity_hate"):
+        def is_flagged(key):
+            val = str(meta.get(key, 0)).strip()
+            return val in {"1", "1.0", "True", "true"}
+
+        if is_flagged("severe_toxic") or is_flagged("threat") or is_flagged("identity_hate"):
             return "UNSAFE_FOR_ALL", "Severe toxicity/threat/identity hate rejected"
-        elif meta.get("obscene"):
+        elif is_flagged("obscene"):
             return "SAFE_18_PLUS", "Profane/obscene language age-gated to adults"
-        elif meta.get("toxic") or meta.get("insult"):
+        elif is_flagged("toxic") or is_flagged("insult"):
             return "SAFE_18_PLUS", "Mild toxic language age-gated"
         else:
             return "UNASSIGNED", "Non-toxic text alone cannot guarantee visual ad safety"
@@ -143,7 +147,8 @@ def import_dataset_directory(
     storage_root_uri: str = "gdrive://safead-storage/SafeAd_Dataset",
     dry_run: bool = False,
     metadata_table_path: Optional[Path] = None,
-    default_review_status: str = "verified"
+    default_review_status: str = "verified",
+    limit: Optional[int] = None
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     """
     Scans a local dataset folder, hashes files, builds records according to the shared schema,
@@ -171,6 +176,8 @@ def import_dataset_directory(
                 media_files.append(p)
 
     media_files.sort()
+    if limit:
+        media_files = media_files[:limit]
 
     # Pre-load optional metadata lookup
     metadata_lookup: Dict[str, Dict[str, Any]] = {}
@@ -179,7 +186,14 @@ def import_dataset_directory(
             with open(metadata_table_path, "r", encoding="utf-8-sig") as mf:
                 reader = csv.DictReader(mf)
                 for row in reader:
-                    key = row.get("filename") or row.get("id") or row.get("ad_id") or row.get("img")
+                    key = (
+                        row.get("filename")
+                        or row.get("file")
+                        or row.get("image_name")
+                        or row.get("id")
+                        or row.get("ad_id")
+                        or row.get("img")
+                    )
                     if key:
                         metadata_lookup[Path(key).name] = row
 
@@ -213,6 +227,12 @@ def import_dataset_directory(
             if age is not None:
                 raw_label = f"age={age};gender={gender};race={race}"
                 notes_extra = f"Demographics: Age {age}, {gender}, {race}"
+        elif source_id == "fairface" and meta_row:
+            age = meta_row.get("age", "")
+            gender = meta_row.get("gender", "")
+            race = meta_row.get("race", "")
+            raw_label = f"age={age};gender={gender};race={race}"
+            notes_extra = f"Demographics: Age {age}, {gender}, {race}"
         elif meta_row:
             raw_label = (
                 meta_row.get("name")
@@ -339,24 +359,54 @@ def import_from_metadata_table(
             sample_id = f"{prefix}_{idx:05d}"
             rel_file_path = f"SafeAd_Dataset/existing_datasets/{source_id}/{raw_media_path}"
             storage_uri = f"{storage_root_uri}/existing_datasets/{source_id}/{raw_media_path}"
-            mtype = infer_media_type(Path(raw_media_path))
-
-            # Compute hash
-            local_target = (base_media_dir / raw_media_path) if base_media_dir else None
-            if not (local_target and local_target.is_file()):
-                ext_path = Path("D:/SafeAd_Dataset/existing_datasets") / source_id / raw_media_path
-                if ext_path.is_file():
-                    local_target = ext_path
-
-            if local_target and local_target.is_file():
-                sha256_val = calculate_sha256(local_target)
+            if source_id == "jigsaw_toxic":
+                mtype = "text"
+                raw_media_path = f"comments/{row.get('id', idx)}.txt"
+                toxic_tags = []
+                for k in ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]:
+                    if str(row.get(k, "0")).strip() in {"1", "1.0", "True", "true"}:
+                        toxic_tags.append(k)
+                raw_label = ";".join(toxic_tags) if toxic_tags else "clean"
+                content_text = row.get("comment_text", "")
+                sha256_val = hashlib.sha256(content_text.encode("utf-8")).hexdigest()
                 review_status = "verified"
+            elif source_id == "dehate":
+                mtype = "video"
+                vid_id = str(row.get("Video ID") or idx)
+                raw_media_path = f"videos/{vid_id}.mp4"
+                hate_type = str(row.get("Explicit or Implicit") or row.get("Hate") or "Non-Hate").strip()
+                target_groups = []
+                for grp in ["Race", "Gender", "Religion", "Sexual Orientation", "Disability", "Immigration"]:
+                    if str(row.get(grp, 0)).strip() in {"1", "1.0", "True", "true"}:
+                        target_groups.append(grp)
+                grp_str = f" [Targets: {', '.join(target_groups)}]" if target_groups else ""
+                raw_label = f"{hate_type}{grp_str}"
+                local_vid = Path("D:/SafeAd_Dataset/existing_datasets/dehate/videos") / f"{vid_id}.mp4"
+                if local_vid.is_file():
+                    sha256_val = calculate_sha256(local_vid)
+                    review_status = "verified"
+                else:
+                    sha256_val = hashlib.sha256(f"dehate:{vid_id}:{raw_label}".encode("utf-8")).hexdigest()
+                    review_status = "pending"
             else:
-                # Deterministic hash representing the pending cloud sample record
-                rec_str = f"{source_id}:{sample_id}:{raw_media_path}:{raw_label}"
-                sha256_val = hashlib.sha256(rec_str.encode("utf-8")).hexdigest()
-                review_status = "pending"
+                mtype = infer_media_type(Path(raw_media_path))
+                # Compute hash
+                local_target = (base_media_dir / raw_media_path) if base_media_dir else None
+                if not (local_target and local_target.is_file()):
+                    ext_path = Path("D:/SafeAd_Dataset/existing_datasets") / source_id / raw_media_path
+                    if ext_path.is_file():
+                        local_target = ext_path
 
+                if local_target and local_target.is_file():
+                    sha256_val = calculate_sha256(local_target)
+                    review_status = "verified"
+                else:
+                    # Deterministic hash representing the pending cloud sample record
+                    rec_str = f"{source_id}:{sample_id}:{raw_media_path}:{raw_label}"
+                    sha256_val = hashlib.sha256(rec_str.encode("utf-8")).hexdigest()
+                    review_status = "pending"
+
+            safead_label, rationale = map_source_label_to_safead(source_id, raw_label, row)
             notes = f"Imported from {metadata_table_path.name}; {rationale}"
 
             records.append({
@@ -411,6 +461,7 @@ if __name__ == "__main__":
     parser.add_argument("--output-csv", default=None, help="Path to write manifest.csv")
     parser.add_argument("--metadata-csv", default=None, help="Path to raw source metadata table for folder import")
     parser.add_argument("--dry-run", action="store_true", help="Simulate import without writing output")
+    parser.add_argument("--base-media-dir", default=None, help="Root directory containing raw media files to hash")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of processed records")
 
     args = parser.parse_args()
@@ -418,10 +469,12 @@ if __name__ == "__main__":
     if args.metadata_table:
         m_table = Path(args.metadata_table)
         out_csv = Path(args.output_csv) if args.output_csv else m_table.parent / "manifest.csv"
+        b_media = Path(args.base_media_dir) if args.base_media_dir else None
         recs, sumry = import_from_metadata_table(
             source_id=args.source,
             metadata_table_path=m_table,
             output_manifest_csv=out_csv,
+            base_media_dir=b_media,
             dry_run=args.dry_run,
             limit=args.limit
         )
@@ -436,7 +489,8 @@ if __name__ == "__main__":
             data_dir=s_dir,
             output_manifest_csv=out_csv,
             dry_run=args.dry_run,
-            metadata_table_path=meta_table
+            metadata_table_path=meta_table,
+            limit=args.limit
         )
         print(f"Directory Ingestion: Imported {len(recs)} records for '{args.source}'. Manifest: {out_csv}")
     else:

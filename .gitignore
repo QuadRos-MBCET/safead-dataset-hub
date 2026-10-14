@@ -1,15 +1,6 @@
-# Ignore actual media files and storage root
-SafeAd_Dataset/
+# Temporary exports and raw dumps
 exports/
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.jpg
-*.jpeg
-*.png
-*.webp
-*.gif
+SafeAd_Dataset/raw_dumps/
 
 # Python artifacts
 __pycache__/
@@ -19,6 +10,7 @@ __pycache__/
 .venv/
 env/
 Thumbs.db
+desktop.ini
 
 # Generated training splits (large CSV files regenerated via scripts/export_splits.py)
 splits/facial_age/

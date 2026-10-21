@@ -28,14 +28,15 @@ CATEGORY_MIN_AGE = {
 ALLOWED_CATEGORIES = set(CATEGORY_MIN_AGE.keys())
 
 def build_content_manifest():
-    manifest_source = REPO_ROOT / "manifests" / "sourav" / "contribution_manifest.json"
-    if not manifest_source.exists():
-        raise FileNotFoundError(f"Source manifest not found: {manifest_source}")
-
-    with open(manifest_source, "r", encoding="utf-8") as f:
-        source_data = json.load(f)
-
-    records = source_data.get("records", [])
+    manifest_sources = [
+        REPO_ROOT / "manifests" / "sourav" / "contribution_manifest.json",
+        REPO_ROOT / "manifests" / "juwel" / "contribution_manifest.json"
+    ]
+    records = []
+    for src in manifest_sources:
+        if src.exists():
+            with open(src, "r", encoding="utf-8") as f:
+                records.extend(json.load(f).get("records", []))
     output_records = []
     seen_ids = set()
 

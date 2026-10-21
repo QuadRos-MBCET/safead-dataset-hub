@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SafeAdAppContentManifest",
+  "description": "Schema for production frontend & backend age-gated content manifest",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "description",
+    "total_items",
+    "content_items"
+  ],
+  "properties": {
+    "manifest_version": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policy_contract": {
+      "type": "object",
+      "properties": {
+        "under_14": { "type": "array", "items": { "type": "string" } },
+        "age_14_to_17": { "type": "array", "items": { "type": "string" } },
+        "age_18_plus": { "type": "array", "items": { "type": "string" } },
+        "prohibited": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "total_items": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "counts_by_category": {
+      "type": "object"
+    },
+    "counts_by_type": {
+      "type": "object"
+    },
+    "content_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "content_id",
+          "content_type",
+          "age_category",
+          "minimum_age",
+          "title",
+          "media_path",
+          "moderation_status"
+        ],
+        "properties": {
+          "content_id": {
+            "type": "string",
+            "pattern": "^SAFEAD_[A-Z0-9_]+$"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": ["image", "reel"]
+          },
+          "age_category": {
+            "type": "string",
+            "enum": ["SAFE_FOR_ALL", "SAFE_14_PLUS", "SAFE_18_PLUS"]
+          },
+          "minimum_age": {
+            "type": "integer",
+            "enum": [0, 14, 18]
+          },
+          "title": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "media_path": {
+            "type": "string"
+          },
+          "moderation_status": {
+            "type": "string",
+            "enum": ["APPROVED"]
+          },
+          "source_name": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "license_status": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "file_size_kb": {
+            "type": "number"
+          },
+          "duration_seconds": {
+            "type": "number"
+          },
+          "has_audio": {
+            "type": "boolean"
+          },
+          "contains_text": {
+            "type": "boolean"
+          },
+          "resolution": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

@@ -2,6 +2,9 @@
 exports/
 SafeAd_Dataset/raw_dumps/
 
+# Nested repositories
+main_project_s7/
+
 # Python artifacts
 __pycache__/
 *.py[cod]

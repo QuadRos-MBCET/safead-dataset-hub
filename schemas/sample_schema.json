@@ -34,6 +34,25 @@
       "type": "string",
       "enum": ["image", "video", "text", "multimodal"]
     },
+    "sample_type": {
+      "type": "string",
+      "enum": [
+        "genuine_commercial_ad",
+        "generic_non_ad_photo",
+        "non_ad_safety_control_video",
+        "synthetic_review_card",
+        "research_specimen_ad"
+      ]
+    },
+    "evaluation_subset": {
+      "type": "string",
+      "enum": [
+        "genuine_commercial_ads_benchmark",
+        "multimodal_safety_expanded_eval",
+        "prohibited_scam_research_callset",
+        "quarantined_synthetic_stress_test"
+      ]
+    },
     "source_name": {
       "type": "string",
       "minLength": 1
@@ -70,7 +89,7 @@
     },
     "review_status": {
       "type": "string",
-      "enum": ["PROPOSED", "ACCEPTED", "REJECTED", "NEEDS_REVIEW", "UNREVIEWED"]
+      "enum": ["PROPOSED", "ACCEPTED", "REJECTED", "NEEDS_REVIEW", "UNREVIEWED", "PENDING_HUMAN_VERIFICATION"]
     }
   },
   "additionalProperties": true

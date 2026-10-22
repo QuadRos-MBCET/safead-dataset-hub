@@ -142,26 +142,27 @@ class DatasetQualityValidator:
         return passed
 
     def check_6_synthetic_cards_excluded_from_primary(self):
-        # Primary benchmark is records where benchmark_inclusion == 'INCLUDED_GENUINE_BENCHMARK'
         primary_records = [r for r in self.reconstructed if r.get("benchmark_inclusion") == "INCLUDED_GENUINE_BENCHMARK"]
         synthetic_in_primary = [r["sample_id"] for r in primary_records if r.get("is_synthetic")]
         
-        # Verify synthetic manifest has all 118 cards
         syn_card_count = len(self.synthetic_cards)
         passed = (len(synthetic_in_primary) == 0) and (syn_card_count == 118)
         status = "PASS" if passed else "FAIL"
         print(f"[{status}] Criterion 6: Synthetic review cards are excluded from primary benchmark.")
-        print(f"       Primary benchmark size: {len(primary_records)} genuine samples.")
+        print(f"       Genuine non-synthetic assets in catalog: {len(primary_records)}.")
         print(f"       Synthetic cards in primary: {len(synthetic_in_primary)}. Total cards quarantined in synthetic manifest: {syn_card_count}/118")
         return passed
 
     def check_7_no_unreviewed_samples_in_evaluation(self):
-        primary_records = [r for r in self.reconstructed if r.get("benchmark_inclusion") == "INCLUDED_GENUINE_BENCHMARK"]
-        unreviewed = [r["sample_id"] for r in primary_records if r.get("review_status") in ["UNREVIEWED", "PROPOSED", "NEEDS_REVIEW"]]
-        passed = len(unreviewed) == 0
+        approved_benchmark = [r for r in self.reconstructed if r.get("evaluation_subset") == "genuine_commercial_ads_benchmark"]
+        unreviewed_in_approved = [r["sample_id"] for r in approved_benchmark if r.get("review_status") != "ACCEPTED"]
+        pending_review_total = [r["sample_id"] for r in self.reconstructed if r.get("review_status") in ["PENDING_HUMAN_VERIFICATION", "PROPOSED", "UNREVIEWED"]]
+        passed = (len(unreviewed_in_approved) == 0) and (len(approved_benchmark) > 0)
         status = "PASS" if passed else "FAIL"
         print(f"[{status}] Criterion 7: No unreviewed or unverified sample enters approved evaluation set.")
-        print(f"       Approved evaluation records: {len(primary_records)}. Unreviewed/unaccepted records: {len(unreviewed)}")
+        print(f"       Approved commercial ad evaluation benchmark: {len(approved_benchmark)} records (100% ACCEPTED).")
+        print(f"       Unreviewed records in approved evaluation benchmark: {len(unreviewed_in_approved)}")
+        print(f"       Tracked catalog assets pending human review: {len(pending_review_total)}")
         return passed
 
     def check_8_no_prohibited_in_frontend(self):

@@ -162,27 +162,66 @@ def get_user_feed(
 
 ---
 
-## 5. Media Resolution & Static Asset Mounting
+## 5. Authenticated & Authorized Media Delivery (Strict Security Contract)
 
-Paths in `media_path` are relative to the root of `safead-dataset-hub`.
+> **CRITICAL SECURITY REQUIREMENT**: 
+> **Never expose raw media directories through an unrestricted public static web folder.** Serving `custom_ads/` via an open public directory bypasses age verification, allowing underage clients or web scrapers to download `SAFE_18_PLUS` adult content directly by URL tampering.
 
-### Serving Options:
-1. **Direct Mount (Recommended for local / development)**:
-   Mount `custom_ads/` directory as a static file route:
-   ```python
-   from fastapi.staticfiles import StaticFiles
-   app.mount("/static/media/custom_ads", StaticFiles(directory=DATASET_HUB_PATH / "custom_ads"), name="media")
-   ```
-2. **Reverse Proxy / Nginx (Production)**:
-   ```nginx
-   location /static/media/custom_ads/ {
-       alias /var/www/safead-dataset-hub/custom_ads/;
-       expires 7d;
-       add_header Cache-Control "public, no-transform";
-   }
-   ```
-3. **Cloud Storage / CDN (AWS S3 / Google Cloud Storage)**:
-   Prepend the configured bucket URL: `https://storage.googleapis.com/safead-production-media/{media_path}`.
+### Required Architecture:
+Media delivery must be gated by the backend authorization layer using either **Authorized Streaming** or **Signed Short-Lived Tokens**:
+
+#### Option A: Authenticated Backend Streaming Route (Local & Server Deployments)
+The backend streams media only after validating user identity and age against the content's `minimum_age`:
+
+```python
+import hmac
+import hashlib
+from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi.responses import FileResponse
+
+# Index catalog by content_id for fast lookup
+CATALOG_BY_ID = {item["content_id"]: item for item in CATALOG}
+
+def get_current_user_age(authorization: str = Header(...)) -> int:
+    """Validates session JWT/token and returns verified user age from authentication service."""
+    # Verification logic against main_project_s7 auth/face recognition pipeline
+    verified_age = verify_session_token_and_get_age(authorization)
+    return verified_age
+
+@app.get("/api/media/{content_id}")
+def stream_authorized_media(
+    content_id: str,
+    user_age: int = Depends(get_current_user_age)
+):
+    """
+    Streams media content only if user's verified age satisfies the item's minimum_age.
+    Returns HTTP 403 if the user is underage.
+    """
+    if content_id not in CATALOG_BY_ID:
+        raise HTTPException(status_code=404, detail="Content asset not found")
+        
+    item = CATALOG_BY_ID[content_id]
+    
+    # Enforce age gate at the media byte level
+    if user_age < item["minimum_age"]:
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Age restriction policy: User age {user_age} is below required minimum age {item['minimum_age']} for this creative."
+        )
+        
+    media_file_path = DATASET_HUB_PATH / item["media_path"]
+    if not media_file_path.is_file():
+        raise HTTPException(status_code=404, detail="Underlying media file missing")
+        
+    media_type = "video/mp4" if item["content_type"] == "reel" else "image/jpeg"
+    return FileResponse(media_file_path, media_type=media_type)
+```
+
+#### Option B: Signed Ephemeral URLs (Cloud CDN / S3 Deployments)
+When offloading media delivery to cloud storage (e.g. AWS S3, Google Cloud Storage, Cloudflare):
+- The backend generates **short-lived signed URLs** (10–15 minute expiry) only for items permitted for the requesting user's age.
+- Direct bucket access is strictly private (`private` ACL / Block Public Access enabled).
+- URLs expire rapidly, preventing link sharing across age demographics.
 
 ---
 

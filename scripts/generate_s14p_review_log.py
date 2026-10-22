@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """
-Generates the comprehensive independent review log for the 75 SAFE_14_PLUS samples.
-Compares:
-- Original Collector Label (SAFE_14_PLUS)
-- Phase 6A Automated Suggestions (48 SAFE_FOR_ALL, 23 SAFE_18_PLUS, 4 HUMAN_REVIEW)
-- Independent Human Reviewer Accepted Label under ANNOTATION_POLICY.md v2.0
-- Detailed Policy Rationale, Reviewer Decision, and Disagreement Resolution.
+Generates the auditable independent review record for the 75 SAFE_14_PLUS samples.
+Adheres strictly to human verification requirements:
+- Distinguishes AI-assisted policy proposal from actual human sign-off.
+- Tracks dual human review fields:
+    * Reviewer identifier or role
+    * Sample ID
+    * Initial independent decision (Human Reviewer 1)
+    * Second independent decision (Human Reviewer 2)
+    * Policy rationale
+    * Disagreement resolution
+    * Final accepted label (Pending Human Sign-off)
+    * Review date
+- Sets review_status = 'PENDING_HUMAN_VERIFICATION' until two human reviewers inspect and sign off.
 """
 
 import os
@@ -17,9 +24,8 @@ from PIL import Image
 REPO_ROOT = Path(__file__).resolve().parent.parent
 S14P_DIR = REPO_ROOT / "custom_ads" / "safe_14_plus" / "images"
 
-# The 75 items extracted directly
+# The 75 items extracted directly from collectors
 S14P_ITEMS = [
-    # 1-15 from collect_diverse_real_images.py
     ("sneakers athletic shoes pair", "Youth Athletic Sneakers", "Real pair of high-top streetwear sneakers on concrete. Teen fashion apparel."),
     ("hoodie streetwear sweatshirt", "Streetwear Graphic Hoodie", "Real graphic print cotton streetwear hoodie on clothes hanger. Youth style."),
     ("gaming gamepad controller", "Wireless Gaming Controller", "Real modern video game console controller on desk. Teen gaming entertainment."),
@@ -35,7 +41,6 @@ S14P_ITEMS = [
     ("electric guitar with amplifier", "Electric Guitar & Amplifier", "Real solid-body electric guitar resting against practice amplifier. Youth music hobby."),
     ("over-ear studio headphones", "Over-Ear DJ Studio Headphones", "Real professional studio monitoring headphones with coiled cable."),
     ("quadcopter drone camera", "Camera Quadcopter Drone", "Real consumer remote-controlled camera quadcopter drone with controller."),
-    # 16-75 from scale_to_75_images.py
     ("denim biker jeans", "Denim Biker Jeans", "Heavy reinforced denim jeans for casual wear."),
     ("flannel plaid shirt youth", "Plaid Flannel Shirt", "Casual long-sleeve plaid flannel shirt."),
     ("baseball cap snapback hat", "Snapback Baseball Cap", "Youth flat-brim streetwear snapback cap."),
@@ -99,13 +104,11 @@ S14P_ITEMS = [
 ]
 
 # Automated heuristic profile mapping from Phase 6A:
-# 23 items flagged 18+ by automated tools:
 AUTO_18P_INDICES = {8, 20, 22, 41, 42, 43, 44, 45, 46, 47, 51, 52, 53, 54, 55, 57, 58, 59, 60, 61, 64, 72, 75}
-# 4 Human review cases from Phase 6A:
 AUTO_REVIEW_INDICES = {11, 29, 35, 70}
 
 
-def run_review():
+def build_auditable_review_records():
     records = []
     
     for idx, (query, title, desc) in enumerate(S14P_ITEMS, 1):
@@ -113,7 +116,6 @@ def run_review():
         fn = f"{sid}.jpg"
         fp = S14P_DIR / fn
         
-        # Stat file
         file_size_kb = round(fp.stat().st_size / 1024, 1)
         with Image.open(fp) as im:
             w, h = im.size
@@ -122,55 +124,33 @@ def run_review():
         with open(fp, "rb") as f:
             sha256 = hashlib.sha256(f.read()).hexdigest()
             
-        # Determine Automated Phase 6A suggestion
+        # Automated Phase 6A suggestion
         if idx in AUTO_REVIEW_INDICES:
             auto_prop = "HUMAN_REVIEW"
-            auto_reason = "Automated model flagged borderline ambiguity / uncertain threshold."
         elif idx in AUTO_18P_INDICES:
             auto_prop = "SAFE_18_PLUS"
-            auto_reason = "Automated model over-indexed on keyword (combat/tactical/military), cosmetic classification, or athlete skin exposure."
         else:
             auto_prop = "SAFE_FOR_ALL"
-            auto_reason = "Automated classifier marked benign everyday product."
             
-        # Independent Policy Assessment
+        # Antigravity AI-Assisted Policy Proposal & Rationale
         if idx == 11:
-            accepted = "SAFE_14_PLUS"
-            rationale = "High-stimulant caffeinated energy beverage (>150mg caffeine) with adolescent appeal. In accordance with ANNOTATION_POLICY.md Section 2.2, elevated caffeine formulations require caution for young children under 14; appropriate tier is SAFE_14_PLUS."
-            decision = "ACCEPTED_RETAINED_14_PLUS"
-            disagreement = "Resolved automated review flag: Not 18+ (non-alcoholic) and not Safe for All due to pediatric stimulant concerns."
+            ai_proposed = "SAFE_14_PLUS"
+            ai_rationale = "High-stimulant caffeinated energy beverage (>150mg caffeine). Under ANNOTATION_POLICY.md v2.0 Section 2.2, elevated caffeine requires caution for children under 14; proposed category is SAFE_14_PLUS."
         elif idx == 51:
-            accepted = "SAFE_14_PLUS"
-            rationale = "Concentrated chemical topical exfoliant (BHA salicylic acid serum). Active dermatological chemical treatment carried with cautionary advisory for young children; permissible for teens 14+."
-            decision = "ACCEPTED_RETAINED_14_PLUS"
-            disagreement = "Overrode automated 18+ suggestion. Non-prescription skincare is not an adult-restricted good; 14+ classification correctly reflects active ingredient advisory."
+            ai_proposed = "SAFE_14_PLUS"
+            ai_rationale = "Concentrated chemical topical exfoliant (BHA salicylic acid serum). Active dermatological treatment carrying pediatric advisory for young children; proposed category is SAFE_14_PLUS."
         elif idx == 58:
-            accepted = "SAFE_14_PLUS"
-            rationale = "Medicated astringent acne cleansing pads containing active salicylic acid. Adolescent dermatological product with pediatric cautionary guidance."
-            decision = "ACCEPTED_RETAINED_14_PLUS"
-            disagreement = "Overrode automated 18+ suggestion. Regulated over-the-counter acne care is suitable for 14+ adolescents."
+            ai_proposed = "SAFE_14_PLUS"
+            ai_rationale = "Medicated astringent acne cleansing pads containing active salicylic acid formulation. Proposed category is SAFE_14_PLUS."
         elif idx == 61:
-            accepted = "SAFE_14_PLUS"
-            rationale = "Ready-to-drink nitro cold brew high-caffeine energy coffee beverage. Elevated dietary stimulant content unsuitable for pre-adolescents under 14."
-            decision = "ACCEPTED_RETAINED_14_PLUS"
-            disagreement = "Overrode automated 18+ suggestion. Packaged coffee beverage is non-alcoholic and lawful for adolescents 14+."
+            ai_proposed = "SAFE_14_PLUS"
+            ai_rationale = "Ready-to-drink nitro cold brew high-caffeine energy coffee beverage. Elevated dietary stimulant content unsuitable for pre-adolescents under 14."
         elif idx == 70:
-            accepted = "SAFE_14_PLUS"
-            rationale = "Action manga comic art featuring dynamic martial arts / combat sequences. Conforms strictly to Section 2.2 for stylized fantasy action violence without graphic gore or trauma."
-            decision = "ACCEPTED_RETAINED_14_PLUS"
-            disagreement = "Resolved automated review flag: Confirmed PG-13 stylized action content; suitable for adolescents 14+."
+            ai_proposed = "SAFE_14_PLUS"
+            ai_rationale = "Action manga comic art featuring dynamic martial arts combat sequences. Conforms to Section 2.2 for stylized fantasy action violence without graphic mutilation or blood gore."
         else:
-            accepted = "SAFE_FOR_ALL"
-            rationale = f"Everyday consumer merchandise ({title.lower()}). Creative contains zero depictions of violence, weapons, sexual content, alcohol, tobacco, gambling, or deceptive claims. Conforms strictly to Section 2.1; youth appeal does not restrict general audience access."
-            if auto_prop == "SAFE_18_PLUS":
-                decision = "DISAGREEMENT_RESOLVED_OVERRULE_18_PLUS"
-                disagreement = f"Automated 18+ suggestion rejected. {title} is an ordinary consumer item, not an adult-restricted product. False positive caused by keyword ('combat', 'tactical', 'aftershave') or athlete context."
-            elif auto_prop == "HUMAN_REVIEW":
-                decision = "DISAGREEMENT_RESOLVED_OVERRULE_REVIEW"
-                disagreement = f"Automated review flag resolved: {title} is an ordinary commercial consumer product with no policy violations."
-            else:
-                decision = "ACCEPTED_RECLASSIFIED_SAFE_FOR_ALL"
-                disagreement = "None. Collector label was over-restrictive based on teen audience assumption; reclassified to SAFE_FOR_ALL per policy."
+            ai_proposed = "SAFE_FOR_ALL"
+            ai_rationale = f"Everyday consumer merchandise ({title.lower()}). Zero depiction of violence, weapons, sexual content, alcohol, tobacco, gambling, or deceptive claims. Conforms to Section 2.1; youth appeal does not restrict general audience access."
 
         rec = {
             "sample_id": sid,
@@ -184,12 +164,15 @@ def run_review():
             "sha256": sha256,
             "original_collector_label": "SAFE_14_PLUS",
             "automated_phase6a_suggestion": auto_prop,
-            "automated_reason": auto_reason,
-            "independent_reviewer_label": accepted,
-            "policy_rationale": rationale,
-            "reviewer_decision": decision,
-            "disagreement_resolution": disagreement,
-            "reviewer_id": "SafeAd-Lead-Annotator-402",
+            "ai_proposal_role": "Antigravity AI Policy Engine (v2.0)",
+            "ai_proposed_label": ai_proposed,
+            "ai_policy_rationale": ai_rationale,
+            # Dual Human Review Audit Fields
+            "initial_independent_decision": "PENDING_HUMAN_REVIEWER_1",
+            "second_independent_decision": "PENDING_HUMAN_REVIEWER_2",
+            "disagreement_resolution": "PENDING_HUMAN_ADJUDICATION",
+            "final_accepted_label": "PENDING_HUMAN_SIGN_OFF",
+            "human_review_status": "PENDING_HUMAN_VERIFICATION",
             "review_date": "2026-10-22",
             "policy_version": "2.0.0"
         }
@@ -211,41 +194,39 @@ def write_outputs(records):
     # 2. Markdown log output
     md_path = docs_dir / "S14P_INDEPENDENT_REVIEW_LOG.md"
     
-    sfa_count = sum(1 for r in records if r["independent_reviewer_label"] == "SAFE_FOR_ALL")
-    s14p_count = sum(1 for r in records if r["independent_reviewer_label"] == "SAFE_14_PLUS")
-    s18p_count = sum(1 for r in records if r["independent_reviewer_label"] == "SAFE_18_PLUS")
+    sfa_count = sum(1 for r in records if r["ai_proposed_label"] == "SAFE_FOR_ALL")
+    s14p_count = sum(1 for r in records if r["ai_proposed_label"] == "SAFE_14_PLUS")
     
     with open(md_path, "w", encoding="utf-8") as f:
-        f.write("# SAFE_14_PLUS Cohort: Comprehensive Independent Review Log\n\n")
-        f.write("**Reviewer**: SafeAd Lead Annotation Panel (SafeAd-Lead-Annotator-402)\n")
+        f.write("# SAFE_14_PLUS Cohort: Auditable Human-Verification Review Log\n\n")
+        f.write("**Review Scope**: Dual Independent Human Verification Audit\n")
+        f.write("**Status**: `PENDING_HUMAN_VERIFICATION` (AI-Assisted Proposals Prepared for Human Sign-off)\n")
         f.write("**Date**: October 22, 2026\n")
         f.write("**Policy Document**: `ANNOTATION_POLICY.md` (Version 2.0.0)\n")
-        f.write(f"**Total Samples Reviewed**: {len(records)}\n\n")
+        f.write(f"**Total Samples**: {len(records)}\n\n")
         
-        f.write("## Executive Summary of Findings\n\n")
-        f.write("- **Original Collector Label**: 75 samples labeled `SAFE_14_PLUS` (based on informal assumption that youth merchandise equals 14+).\n")
-        f.write("- **Automated Phase 6A Suggestions**: 48 `SAFE_FOR_ALL`, 23 `SAFE_18_PLUS`, 4 `HUMAN_REVIEW` (heuristic over-indexing on keywords and athlete skin exposure).\n")
-        f.write("- **Independent Human Review Accepted Labels**:\n")
-        f.write(f"  - **`SAFE_FOR_ALL`**: **{sfa_count} samples (93.3%)** — Ordinary consumer apparel, electronics, musical instruments, household sports gear, and daily food items.\n")
-        f.write(f"  - **`SAFE_14_PLUS`**: **{s14p_count} samples (6.7%)** — Justified policy rationales (high-caffeine energy drinks, active salicylic acid dermatological treatments, stylized action combat manga).\n")
-        f.write(f"  - **`SAFE_18_PLUS`**: **{s18p_count} samples (0.0%)** — **Zero adult-restricted items.** Overruled automated 18+ false positives.\n\n")
+        f.write("## 1. Transparency Declaration\n\n")
+        f.write("> [!IMPORTANT]\n")
+        f.write("> In strict accordance with SAFE-VISION scientific integrity protocols, **the labels below represent AI-assisted policy recommendations generated by Antigravity v2.0.**\n")
+        f.write("> They have **NOT** yet been signed off by two independent human annotators. All 75 samples remain formally designated as `PENDING_HUMAN_VERIFICATION` in the master manifest until personal inspection and sign-off by human project developers.\n\n")
         
-        f.write("### Analysis of Automated Heuristic Disagreements (Overruling the 23 Automated S18P Suggestions)\n\n")
-        f.write("The automated classifier proposed 23 samples as `SAFE_18_PLUS`. Our independent policy inspection confirmed that **none of these 23 samples are adult-restricted goods**:\n")
-        f.write("1. **Keyword Over-Indexing**: Items like `Lace-Up Combat Boots` (#22) and `Cargo Utility Pants` (#20) were misflagged due to strings like 'combat' and 'military'. Under Section 3, utility fashion footwear and cargo trousers contain zero weapons, violence, or contraband.\n")
-        f.write("2. **Athlete Context / Skin Exposure False Positives**: Items like `Gym Dumbbells` (#07), `Barbell Plates` (#41), `Rock Climbing Harness` (#44), and `Foam Roller` (#45) triggered automated NSFW / adult flags due to exposed athletic limbs on workout mats. Under Section 2.3, non-sexualized athletic fitness gear is strictly `SAFE_FOR_ALL`.\n")
-        f.write("3. **Grooming Misclassifications**: `Aftershave Balm` (#54) and `Electric Hair Trimmer` (#53) were flagged as adult goods. These are standard over-the-counter daily hygiene appliances.\n")
-        f.write("4. **Food / Stimulant Confusion**: `Habanero Hot Sauce` (#60), `Spicy Ramen` (#59), and `Nitro Cold Brew` (#61) were flagged as hazardous/adult substances. Condiments are everyday food (`SAFE_FOR_ALL`), and concentrated coffee is non-alcoholic (`SAFE_14_PLUS`).\n\n")
+        f.write("## 2. Summary of Policy Proposals\n\n")
+        f.write("- **Original Collector Label**: 75 samples labeled `SAFE_14_PLUS`.\n")
+        f.write("- **Automated Phase 6A Suggestions**: 48 `SAFE_FOR_ALL`, 23 `SAFE_18_PLUS`, 4 `HUMAN_REVIEW`.\n")
+        f.write(f"- **Antigravity Policy Engine Proposals**:\n")
+        f.write(f"  - **`SAFE_FOR_ALL`**: **{sfa_count} samples (93.3%)** — Everyday consumer lifestyle goods.\n")
+        f.write(f"  - **`SAFE_14_PLUS`**: **{s14p_count} samples (6.7%)** — Justified policy rationales (high caffeine, active chemical skincare, action manga).\n")
+        f.write(f"  - **`SAFE_18_PLUS`**: **0 samples (0.0%)** — Overruled 23 automated 18+ false positives.\n\n")
         
-        f.write("## Complete Sample-by-Sample Inspection Table\n\n")
-        f.write("| Sample ID | Creative Title | Original | Auto (Phase 6A) | Final Accepted | Reviewer Decision | Policy Rationale |\n")
-        f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
+        f.write("## 3. Auditable Dual-Review Verification Table\n\n")
+        f.write("| Sample ID | Creative Title | Original | AI Proposed | Reviewer 1 Decision | Reviewer 2 Decision | Final Human Label | Policy Rationale |\n")
+        f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
         for r in records:
-            f.write(f"| `{r['sample_id']}` | {r['title']} | `{r['original_collector_label']}` | `{r['automated_phase6a_suggestion']}` | **`{r['independent_reviewer_label']}`** | `{r['reviewer_decision']}` | {r['policy_rationale'][:120]}... |\n")
+            f.write(f"| `{r['sample_id']}` | {r['title']} | `{r['original_collector_label']}` | **`{r['ai_proposed_label']}`** | `[PENDING]` | `[PENDING]` | `[PENDING]` | {r['ai_policy_rationale'][:100]}... |\n")
             
     print(f"[SUCCESS] Wrote {md_path}")
 
 
 if __name__ == "__main__":
-    records = run_review()
+    records = build_auditable_review_records()
     write_outputs(records)
